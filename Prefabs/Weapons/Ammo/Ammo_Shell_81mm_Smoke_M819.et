@@ -1,0 +1,8 @@
+Projectile : "{EEF8495A9A6787A6}Prefabs/Weapons/Core/Ammo_MortarShell_Base.et" {
+ ID "5098E3DEA78F878B"
+ components {
+  RKN_MortarHitHandlerComponent "{6572681D1B94CD21}" {
+   m_eAmmoType SMOKE
+  }
+ }
+}

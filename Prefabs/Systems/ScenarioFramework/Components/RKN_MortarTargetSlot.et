@@ -1,0 +1,12 @@
+GenericEntity {
+ ID "655EEA431D44A3DC"
+ components {
+  RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+   m_bShowDebugShapesInWorkbench 1
+   m_bDebugIgnoreSphere 0
+  }
+  Hierarchy "{655EEA43D75E223D}" {
+  }
+ }
+ coords 8531.085 132.057 3375.926
+}

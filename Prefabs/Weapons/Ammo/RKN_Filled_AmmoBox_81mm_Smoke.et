@@ -1,0 +1,16 @@
+GenericEntity : "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_FilteredInventoryStorageComponent "{5476A2F100DF4EFF}" {
+   MultiSlots {
+    MultiSlotConfiguration "{656468780133778E}" {
+     SlotTemplate InventoryStorageSlot test {
+      Prefab "{F7807293E94D3C88}Prefabs/Weapons/Ammo/Ammo_Shell_81mm_Smoke_M819.et"
+     }
+    }
+   }
+  }
+ }
+ coords 8633.036 289.651 4297.059
+ angleY 86.18
+}

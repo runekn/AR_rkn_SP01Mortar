@@ -1,0 +1,89 @@
+Projectile : "{C0BDA86B5AA5648C}Prefabs/Weapons/Core/Ammo_Rocket_Base.et" {
+ ID "DA5C6308000CDEF2"
+ components {
+  SCR_ShellSoundComponent "{60C2960B45ABE97D}" {
+   Filenames {
+    "{5690822984961E30}Sounds/Weapons/_SharedData/ProjectileTravelling/Weapons_ProjectileTravelling_Mortar_Generic.acp"
+   }
+  }
+  BaseTriggerComponent "{58AAA3E2CF5CABFE}" {
+   PROJECTILE_EFFECTS {
+    ExplosionEffect "{58AAA3E2D7F13E11}" {
+     EffectPrefab "{F5D96D52DC3251F6}Prefabs/Weapons/Warheads/Warhead_Shell_HE_O832DU.et"
+     ParticleEffect "{318510C6FB1633D9}Particles/Weapon/Explosion_Mortar_Base.ptc"
+     SoundEvent "SOUND_EXPLOSION"
+    }
+    AIExplosionEffect "{5E8B09C3144B5940}" {
+    }
+   }
+   DELETE_ON_TRIGGER 0
+  }
+  InventoryItemComponent "{526E87778842822F}" {
+   Enabled 0
+   Attributes SCR_ItemAttributeCollection "{526E87778ACB229F}" {
+    ItemDisplayName UIInfo "{526E8777859BAACF}" {
+     Name "#AR-Magazine_PG7VL_Name"
+     Description "#AR-Magazine_PG7VL_Description"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{5882858128F3747E}" {
+     Weight 2.6
+     SizeSetupStrategy Volume
+     ItemVolume 1500
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{52D6F6A5FB82EE10}" {
+      CameraPreset Top
+      CameraDistanceToItem 1
+     }
+    }
+    m_SlotType SLOT_BACKPACK
+   }
+  }
+  MagazineComponent "{50F6614BB5D5B0A8}" {
+   Enabled 0
+   MagazineWell MagazineWellRPG7 "{5882858128F37440}" {
+   }
+   UIInfo MagazineUIInfo "{560AE4EBFA0176D4}" {
+    Name "#AR-Magazine_PG7VL_Name"
+    Description "#AR-Magazine_PG7VL_Description"
+    m_sAmmoCaliber "#AR-AmmunitionID_93mm"
+    m_sAmmoType "#AR-AmmunitionType_HEAT"
+   }
+   ItemModel "{8D45E556F15948E3}Assets/Weapons/Magazines/RPG7/Rocket_PG7VL_item.xob"
+  }
+  MissileMoveComponent "{0EF36690881261EF}" {
+   InitSpeed 112
+   Mass 2.2
+   TimeToLive 5
+   ProjectileEffects {
+    AIHitEffect "{5882858128F37453}" {
+    }
+   }
+   ThrustInitTime 0.1
+   ThrustTime 2.1
+   ThrustForce 560
+   ForwardAirFriction 0.4
+   SideAirFriction 0.08
+   AlignTorque 0.04
+   DistanceEnableGravitation 0.4
+  }
+  RocketTraceEffectComponent "{5882858128F375AC}" {
+   ParticleEffect "{0F364F4CD1D72350}Particles/Weapon/Trail_PG7VL.ptc"
+  }
+  SCR_InstantTriggerComponent "{58AAA3E178462FB9}" {
+  }
+  SCR_LifetimeComponent "{58E48AB933C2EC42}" {
+   m_fLifeTime 2
+  }
+  SCR_LightningComponent "{594AE68F48072AD5}" {
+   Enabled 0
+   m_fFlashMaxDurationMillis 150
+   m_fFlashMaxCooldownMillis 70
+   m_fFlashMinVisibilityRadiusKM 3
+   m_fFlashMaxVisibilityRadiusKM 5
+  }
+ }
+ coords -0.94 1.813 -0.991
+ ProjectileModel ""
+ CartridgeModel ""
+}
