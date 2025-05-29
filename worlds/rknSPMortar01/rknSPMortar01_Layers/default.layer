@@ -864,8 +864,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{6572FCCF029B119D}" {
-             Offset 140.3936 -13.852 -93.9053
+            m_oObserverPosition PointInfo "{657A735D1601B9D9}" {
+             Offset 140.1387 -11.9273 -99.0835
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8C60600F85}" {
             }
@@ -901,7 +901,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity RKN_MortarTargetSlot3 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
           components {
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-            m_iTargetRadius 50
+            m_iTargetRadius 40
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
@@ -944,15 +944,15 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{6572FCC5C9140AE4}" {
-             Offset -235.0869 -36.5187 -87.1797
+            m_oObserverPosition PointInfo "{657A735D05C3E80D}" {
+             Offset -233.85791 -36.1968 -91.57639
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D9CA6C280}" {
             }
             m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
            }
           }
-          coords -1812.592 -248.357 -1088.545
+          coords -1827.822 -248.939 -1098.487
          }
          GenericEntity SlotTask6 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
@@ -981,7 +981,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity RKN_MortarTargetSlot4 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
           components {
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-            m_iTargetRadius 50
+            m_iTargetRadius 30
             m_iTargetIgnoreRadius 500
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF94157A95C}" {
@@ -1020,8 +1020,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{6572FCE0BB2CFD5D}" {
-             Offset -118.86961 0 -732.06299
+            m_oObserverPosition PointInfo "{657A735D3F6933B4}" {
+             Offset -121.87991 -8.8629 -721.88452
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D99920623}" {
             }
@@ -1205,8 +1205,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{65790BE61D0441D2}" {
-             Offset 239.47751 46.9735 -273.92187
+            m_oObserverPosition PointInfo "{657A735D2084CB7A}" {
+             Offset 240.11771 45.7794 -272.33008
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D9444E39C}" {
             }
@@ -1401,8 +1401,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{6572FCC52AEAB3DF}" {
-             Offset -235.38771 221.2258 -346.27731
+            m_oObserverPosition PointInfo "{657A735D4274E80A}" {
+             Offset -239.75391 216.96649 -339.82098
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D804E99C0}" {
             }
@@ -1481,8 +1481,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{65790BEFC624770C}" {
-             Offset 0 0 -94.61951
+            m_oObserverPosition PointInfo "{657A735D555C1A17}" {
+             Offset 187.85161 -40.9564 98.1012
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D85C7EEAF}" {
             }
@@ -1562,12 +1562,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
-            m_vObserverPosition PointInfo "{65790BEF260A657E}" {
-             Offset 37.5527 19.8648 -314.90887
-            }
-            m_SoundActorGetter RKN_GetRadioEntity "{65750C8D876CB1F6}" {
-            }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
            }
           }
           coords 1269.456 4.753 -1722.883
@@ -1604,11 +1598,11 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   {
    $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
     Layer2 {
-     coords 0 0 0
+     coords 104.67 23.091 -156.183
      {
       Vehicle M151A1 : "{47D94E1193A88497}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport.et" {
-       coords 2.05 0.032 0.495
-       angleY 171.372
+       coords 1.157 0.231 -1.123
+       angleY 135.791
       }
       GenericEntity SlotAI1 : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
        components {
@@ -1633,7 +1627,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               SCR_ScenarioFrameworkActionVoiceOverPlayLine "{65750C849C53EC87}" {
                m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
                m_sLineName "INTRO_RADIO_GREETING"
-               m_ActorGetter RKN_GetRadioEntity "{65750C88FD743675}" {
+               m_ActorGetter RKN_GetRadioEntity "{657A507323ABBE3E}" {
                }
                m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65750C848F3FE35B}" {
                }
@@ -1641,10 +1635,26 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
+            SCR_ScenarioFrameworkAIActionOnWaypointCompleted "{657A507E364356AE}" {
+             m_Getter SCR_ScenarioFrameworkGetLayerBase "{657A507E3006BA37}" {
+              m_sLayerBaseName "SlotWaypoint3"
+             }
+             m_aActionsOnWaypointCompleted {
+              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657A507E238AF097}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "INTRO_HAMMER_CONV"
+               m_ActorGetter SCR_ScenarioFrameworkGetSpawnedEntity "{657A5075DDBACE80}" {
+                m_sLayerName "SlotAI1"
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{657A507E5C3F9C62}" {
+               }
+              }
+             }
+            }
            }
           }
          }
-         m_sObjectToSpawn "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Unarmed.et"
+         m_sObjectToSpawn "{040ADAF89889D239}Prefabs/RKN_Character_US_Officer.et"
          m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{65646875E59AA430}" {
           m_aLayerName {
            "Layer3"
@@ -1653,7 +1663,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          m_bSpawnAIOnWPPos 1
         }
        }
-       coords 3.787 0 0.431
+       coords 3.787 0.16 0.431
       }
      }
     }
@@ -1671,7 +1681,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           }
          }
         }
-        coords 0 0 0
+        coords 104.67 23.181 -156.183
        }
        SlotWaypoint3 {
         components {
@@ -1688,15 +1698,15 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
           m_Waypoint SCR_ScenarioFrameworkWaypointMove "{6566607FACE1B482}" {
            m_aSettings {
-            SCR_AICharacterMovementSpeedSetting "{6566607FA58E1F68}" {
-             m_eCause ALWAYS
+            SCR_AIGroupCharactersMovementSpeedSetting "{657A7358B565934B}" {
              m_eSpeed WALK
             }
            }
+           m_fCompletionRadius 2
           }
          }
         }
-        coords 314.308 37.408 -230.104
+        coords 319.92 38.563 -224.484
        }
       }
      }
@@ -1707,7 +1717,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        m_eActivationType ON_TRIGGER_ACTIVATION
       }
      }
-     coords 317.262 37.374 -229.677
+     coords 322.874 38.511 -224.058
      {
       GenericEntity Slot1 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
        components {
@@ -1715,7 +1725,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          m_sObjectToSpawn "{CC1A317892809397}Prefabs/Weapons/MortarShellExplosion.et"
         }
        }
-       coords 0 0 0
+       coords -1.692 0 -0.961
       }
      }
     }

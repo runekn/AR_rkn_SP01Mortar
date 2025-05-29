@@ -42,7 +42,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	ref array<ref SCR_ScenarioFrameworkActionBase> m_aActionsOnFailure;
 	
 	[Attribute(desc: "From where adjustment are calculated relative of", UIWidgets.Auto, category: "Mortar target")]
-	PointInfo m_vObserverPosition;
+	ref PointInfo m_oObserverPosition;
 	
 	[Attribute(desc: "Entity playing the voiceover lines", UIWidgets.Auto, category: "Mortar target")]
 	ref SCR_ScenarioFrameworkGet m_SoundActorGetter;
@@ -64,8 +64,8 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		if (system)
 			system.AddTarget(this);
 		m_bAdjustFire = m_bRequestAdjustFire;
-		if (m_vObserverPosition)
-			m_vObserverPosition.Init(GetOwner());
+		if (m_oObserverPosition)
+			m_oObserverPosition.Init(GetOwner());
 		
 		if (m_sAdjustSoundConfig)
 		{
@@ -126,7 +126,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	
 	void Splash(vector hit, float dist)
 	{
-		Print("Hit " + GetOwner().GetName() + " " + dist + " from " + m_vObserverPosition);
+		Print("Hit " + GetOwner().GetName() + " " + dist + " from " + m_oObserverPosition);
 		if (dist < m_iTargetRadius)
 		{
 			Print("On target!");
@@ -145,7 +145,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		{
 			vector target = GetOwner().GetOrigin();
 			vector observerTransform[4];
-			m_vObserverPosition.GetWorldTransform(observerTransform);
+			m_oObserverPosition.GetWorldTransform(observerTransform);
 			vector direction = vector.Direction(observerTransform[3], target);
 			vector hitDirection = vector.Direction(target, hit);
 			float scale = hitDirection.Length();
