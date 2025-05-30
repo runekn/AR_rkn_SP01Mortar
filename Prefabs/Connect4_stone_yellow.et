@@ -1,0 +1,20 @@
+GenericEntity {
+ ID "657C89BAB83370C4"
+ components {
+  MeshObject "{657C89DD1244B165}" {
+   Object "{4B1AF02BC46D1B70}Assets/Connect4_stone/STONE.xob"
+   Materials {
+    MaterialAssignClass "{657C89DD77F7111B}" {
+     SourceMaterial "DefaultGeneratedMaterial"
+     AssignedMaterial "{F8A674690DA79472}Assets/Connect4_stone/Data/Connect4_stone_yellow.emat"
+    }
+   }
+  }
+  RigidBody "{657C89DD17ED97EC}" {
+   Static 1
+  }
+  RplComponent "{657C89BA8CE942F7}" {
+  }
+ }
+ coords 8640.831 290.565 4298.85
+}

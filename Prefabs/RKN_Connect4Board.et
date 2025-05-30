@@ -1,0 +1,145 @@
+GenericEntity {
+ ID "657C89811AB4B43D"
+ components {
+  MeshObject "{657C89EB3CFE5419}" {
+   Object "{78D454AD62727A67}Assets/Connect4_board/LOD0.xob"
+  }
+  RKN_Connect4BoardAIComponent "{657C89A98924F46E}" {
+   m_iMinMaxDepth 4
+  }
+  RKN_Connect4BoardComponent "{657C89DD6EE5F176}" {
+   m_LowerLeftSlot PointInfo "{657C89BA727A13DE}" {
+    Offset 0 -0.0214 0.135
+   }
+   m_UpperRightSlot PointInfo "{657C89BD9D098A6B}" {
+    Offset 0 0.202 -0.1341
+   }
+   m_Player1 "{7205DCA16A5C7BE5}Prefabs/Connect4_stone_red.et"
+   m_Player2 "{F31529363FDC74B6}Prefabs/Connect4_stone_yellow.et"
+  }
+  RigidBody "{657C89EB436A96F1}" {
+   Static 1
+  }
+  ActionsManagerComponent "{657C89EB560373E4}" {
+   ActionContexts {
+    UserActionContext "{657C89EB6EA047B4}" {
+     ContextName "pos1"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset 0.0002 0.2271 0.1343
+     }
+     Height 0
+    }
+    UserActionContext "{657C89EA944F7226}" {
+     ContextName "pos2"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset -0.0002 0.2271 0.0893
+     }
+     Height 0
+    }
+    UserActionContext "{657C89EA9334C65F}" {
+     ContextName "pos3"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset -0.0004 0.2271 0.0438
+     }
+     Height 0
+    }
+    UserActionContext "{657C89EA8F66BA39}" {
+     ContextName "pos4"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset 0.0007 0.2271 0.0012
+     }
+     Height 0
+    }
+    UserActionContext "{657C89EA8A1AA858}" {
+     ContextName "pos5"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset 0.0005 0.2271 -0.0443
+     }
+     Height 0
+    }
+    UserActionContext "{657C89A9BD513FC8}" {
+     ContextName "pos6"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset 0.0008 0.2271 -0.0895
+     }
+     Height 0
+    }
+    UserActionContext "{657C89A9B422C1AC}" {
+     ContextName "pos7"
+     Position PointInfo "{657C89E01DD80754}" {
+      Offset 0.0004 0.2271 -0.135
+     }
+     Height 0
+    }
+   }
+   additionalActions {
+    RKN_Connect4PlaceStoneAction "{657C89A9A5819445}" {
+     ParentContextList {
+      "pos1"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 1"
+     }
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C588B775}" {
+     ParentContextList {
+      "pos2"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 2"
+     }
+     m_iColumn 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C572C0BF}" {
+     ParentContextList {
+      "pos3"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 3"
+     }
+     m_iColumn 2
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C431F95C}" {
+     ParentContextList {
+      "pos4"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 4"
+     }
+     m_iColumn 3
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C7CA9016}" {
+     ParentContextList {
+      "pos5"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 5"
+     }
+     m_iColumn 4
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C6276FB4}" {
+     ParentContextList {
+      "pos6"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 6"
+     }
+     m_iColumn 5
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C1EC0B4D}" {
+     ParentContextList {
+      "pos7"
+     }
+     UIInfo UIInfo "{657C89A9A664689D}" {
+      Name "Add stone in 7"
+     }
+     m_iColumn 6
+    }
+   }
+  }
+  RplComponent "{657C89EB400941A7}" {
+  }
+ }
+ coords 8640.913 290.608 4298.553
+ angleY 26.382
+}

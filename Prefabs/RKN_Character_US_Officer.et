@@ -1,0 +1,11 @@
+SCR_ChimeraCharacter : "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Unarmed.et" {
+ ID "520EC961A090BBD5"
+ components {
+  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
+   Filenames + {
+    "{2B919BAC674D1678}Sounds/Mortar_Corrections.acp"
+   }
+  }
+ }
+ coords 8618.038 288.647 4304.462
+}

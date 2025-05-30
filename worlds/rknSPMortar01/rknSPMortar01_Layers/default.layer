@@ -1,3 +1,7 @@
+GenericEntity : "{53FFD739D3B660E3}Prefabs/RKN_Connect4Board.et" {
+ coords 8640.937 290.601 4298.565
+ angleY 31.169
+}
 GameEntity : "{6113990D163E5249}Prefabs/Items/Equipment/BalisticTable/BalisticTable_US.et" {
  coords 8641.663 290.473 4295.458
  angleY -41.706
@@ -424,6 +428,16 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 8638.044 289.596 4306.019
   {
+   $grp StaticModelEntity : "{39C308BBB5945B85}Prefabs/Props/Military/Furniture/ChairMilitary_US_02.et" {
+    {
+     coords 2.286 0.045 -7.826
+     angleY 49.832
+    }
+    {
+     coords 3.239 0.037 -7.811
+     angleY -89.321
+    }
+   }
    GenericEntity Radio : "{4417ED07902CE47E}Prefabs/Props/Military/Radios/RadioStation_ANPRC77_01.et" {
     components {
      SignalsManagerComponent "{6561090194134E35}" {
@@ -616,8 +630,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           angleY -169.679
          }
          GenericEntity : "{986F38072A8DD563}Prefabs/Props/Garbage/Generic/Junk_01/Junk_01_single_planks.et" {
-          coords -2.582 -0.039 1.316
-          angleY -180
+          coords -2.692 -0.039 1.307
+          angleY 175.34
          }
         }
        }
@@ -753,11 +767,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          angleX 5.557
          angleY 81.1
          angleZ 0.057
-         {
-          GenericEntity {
-           coords 0.114 0 0
-          }
-         }
         }
        }
       }
@@ -778,6 +787,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      }
     }
    }
+   StaticModelEntity : "{7762F50A860DD074}Prefabs/Props/Military/Furniture/TableMilitary_US_01.et" {
+    coords 2.982 0.042 -7.658
+    angleY -90
+   }
    GenericEntity : "{F2539FA5706E51E4}Prefabs/Items/Equipment/Binoculars/Binoculars_B12/Binoculars_B12.et" {
     coords -0.34 0.532 -10.69
     angleY -36.385
@@ -794,19 +807,30 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        m_SpawnChildren RANDOM_ONE
        m_eActivationType ON_TRIGGER_ACTIVATION
        m_aTriggerActionsOnFinish {
-        SCR_ScenarioFrameworkActionSpawnObjects "{657292446D024087}" {
-         m_aNameOfObjectsToSpawnOnActivation {
-          "FireSupport2_layer"
-         }
-        }
         SCR_ScenarioFrameworkActionIncrementCounter "{6576500049254A19}" {
          m_sCounterName "MissionCounter"
         }
+        SCR_ScenarioFrameworkActionWaitAndExecute "{657C647965D28E36}" {
+         m_iDelayInSeconds 10
+         m_aActions {
+          SCR_ScenarioFrameworkActionSpawnObjects "{657C6479621A39C9}" {
+           m_aNameOfObjectsToSpawnOnActivation {
+            "FireSupport2_layer"
+           }
+          }
+         }
+        }
        }
        m_aTriggerActionsOnCancelled {
-        SCR_ScenarioFrameworkActionSpawnObjects "{65784E382CEC2E3E}" {
-         m_aNameOfObjectsToSpawnOnActivation {
-          "FireSupport2_layer"
+        SCR_ScenarioFrameworkActionWaitAndExecute "{657C647E907CE544}" {
+         m_iDelayInSeconds 10
+         m_iDelayInSecondsMax 0
+         m_aActions {
+          SCR_ScenarioFrameworkActionSpawnObjects "{657C6479621A39C9}" {
+           m_aNameOfObjectsToSpawnOnActivation {
+            "FireSupport2_layer"
+           }
+          }
          }
         }
        }
@@ -825,8 +849,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 300
-            m_iTimeoutInSecondsMax 360
+            m_iTimeoutInSeconds 400
+            m_iTimeoutInSecondsMax 460
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF93574F359}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -905,8 +929,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 300
-            m_iTimeoutInSecondsMax 360
+            m_iTimeoutInSeconds 500
+            m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF9579DCB28}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -983,6 +1007,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
             m_iTargetRadius 30
             m_iTargetIgnoreRadius 500
+            m_iRequiredSplashesOnTarget 3
+            m_iRequiredSplashes 5
+            m_iTimeoutInSeconds 500
+            m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF94157A95C}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1060,19 +1088,31 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        m_SpawnChildren RANDOM_ONE
        m_eActivationType ON_TRIGGER_ACTIVATION
        m_aTriggerActionsOnFinish {
-        SCR_ScenarioFrameworkActionSpawnObjects "{657292446D024087}" {
-         m_aNameOfObjectsToSpawnOnActivation {
-          "FireSupport3_layer"
-         }
-        }
         SCR_ScenarioFrameworkActionIncrementCounter "{657650007D97806D}" {
          m_sCounterName "MissionCounter"
         }
+        SCR_ScenarioFrameworkActionWaitAndExecute "{657C647E89746112}" {
+         m_iDelayInSeconds 10
+         m_iDelayInSecondsMax 0
+         m_aActions {
+          SCR_ScenarioFrameworkActionSpawnObjects "{657C6479621A39C9}" {
+           m_aNameOfObjectsToSpawnOnActivation {
+            "FireSupport3_layer"
+           }
+          }
+         }
+        }
        }
        m_aTriggerActionsOnCancelled {
-        SCR_ScenarioFrameworkActionSpawnObjects "{65784E383F9DC069}" {
-         m_aNameOfObjectsToSpawnOnActivation {
-          "FireSupport3_layer"
+        SCR_ScenarioFrameworkActionWaitAndExecute "{657C647EBDE7FCC2}" {
+         m_iDelayInSeconds 10
+         m_iDelayInSecondsMax 0
+         m_aActions {
+          SCR_ScenarioFrameworkActionSpawnObjects "{657C6479621A39C9}" {
+           m_aNameOfObjectsToSpawnOnActivation {
+            "FireSupport3_layer"
+           }
+          }
          }
         }
        }
@@ -1081,7 +1121,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      coords 0 0 0
      {
       $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
-       Layer7 {
+       FireSupport2c_layer {
         coords 0 0 0
         {
          GenericEntity RKN_MortarTargetSlot5 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
@@ -1092,8 +1132,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_bRequestAdjustFire 0
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 240
-            m_iTimeoutInSecondsMax 300
+            m_iTimeoutInSeconds 340
+            m_iTimeoutInSecondsMax 400
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BE63D9AD3E8}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1156,7 +1196,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          }
         }
        }
-       Layer5 {
+       FireSupport2b_layer {
         coords 0 0 0
         {
          GenericEntity RKN_MortarTargetSlot6 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
@@ -1166,8 +1206,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 240
-            m_iTimeoutInSecondsMax 300
+            m_iTimeoutInSeconds 540
+            m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BE6FF12AB20}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1236,7 +1276,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          }
         }
        }
-       Layer4 {
+       FireSupport2a_layer {
         coords 0 0 0
         {
          GenericEntity RKN_MortarTargetSlot7 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
@@ -1248,7 +1288,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
             m_iTimeoutInSeconds 250
-            m_iTimeoutInSecondsMax 300
+            m_iTimeoutInSecondsMax 400
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF975FFF85F}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1324,7 +1364,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          m_sCounterName "MissionCounter"
         }
         SCR_ScenarioFrameworkActionWaitAndExecute "{6572924A1969E985}" {
-         m_iDelayInSeconds 3
+         m_iDelayInSeconds 5
          m_aActions {
           SCR_ScenarioFrameworkActionSpawnObjects "{65790BF305A87358}" {
            m_aNameOfObjectsToSpawnOnActivation {
@@ -1336,7 +1376,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        }
        m_aTriggerActionsOnCancelled {
         SCR_ScenarioFrameworkActionWaitAndExecute "{65790BF327ED9009}" {
-         m_iDelayInSeconds 3
+         m_iDelayInSeconds 5
          m_iDelayInSecondsMax 0
          m_aActions {
           SCR_ScenarioFrameworkActionSpawnObjects "{65790BF305A87358}" {
@@ -1352,7 +1392,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      coords 0 0 0
      {
       $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
-       Layer9 {
+       FireSupport3c_layer {
         coords 0 0 0
         {
          GenericEntity RKN_MortarTargetSlot8 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
@@ -1362,8 +1402,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 4
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 300
-            m_iTimeoutInSecondsMax 360
+            m_iTimeoutInSeconds 400
+            m_iTimeoutInSecondsMax 460
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BEF75CE1275}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1432,7 +1472,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          }
         }
        }
-       Layer10 {
+       FireSupport3a_layer {
         coords 0 0 0
         {
          GenericEntity RKN_MortarTargetSlot9 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
@@ -1442,8 +1482,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 2
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 300
-            m_iTimeoutInSecondsMax 400
+            m_iTimeoutInSeconds 400
+            m_iTimeoutInSecondsMax 500
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BE65B767C9B}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1512,19 +1552,19 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          }
         }
        }
-       Layer11 {
+       FireSupport3b_layer {
         coords 0 0 0
         {
          GenericEntity RKN_MortarTargetSlot10 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
           components {
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-            m_iTargetRadius 40
+            m_iTargetRadius 35
             m_iTargetIgnoreRadius 500
             m_bRequestAdjustFire 0
             m_iRequiredSplashesOnTarget 4
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 200
-            m_iTimeoutInSecondsMax 300
+            m_iTimeoutInSeconds 100
+            m_iTimeoutInSecondsMax 120
             m_aActionsOnCompletion {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BEF30BF49CA}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
