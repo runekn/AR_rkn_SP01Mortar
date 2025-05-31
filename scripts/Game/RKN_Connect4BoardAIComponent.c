@@ -8,26 +8,96 @@ class RKN_Connect4BoardAIComponent : ScriptComponent
 	[Attribute(defvalue: "5")]
 	int m_iMinMaxDepth;
 	
-	int GetBestMove(int state[7][6], int player)
+	[Attribute(defvalue: "2")]
+	int m_iAIPlayer;
+	
+	[Attribute(defvalue: "1")]
+	int m_iOpponentPlayer;
+	
+	[Attribute(defvalue: "3")]
+	int m_iDelay;
+	
+	RKN_Connect4BoardComponent m_Board;
+	bool m_bMyTurn;
+	bool m_bOpponentCheating;
+	
+	override protected void OnPostInit(IEntity owner)
 	{
+		super.OnPostInit(owner);
+		if (GetGame().GetPlayerManager().GetPlayerCount() > 1)
+			return;
+		
+		m_Board = RKN_Connect4BoardComponent.Cast(owner.FindComponent(RKN_Connect4BoardComponent));
+		m_Board.m_OnPlayerMove.Insert(StartSpiritTimer);
+		m_Board.m_OnReset.Insert(Reset);
+	}
+	
+	override protected void EOnDeactivate(IEntity owner)
+	{
+		super.EOnDeactivate(owner);
+		m_Board.m_OnPlayerMove.Remove(StartSpiritTimer);
+	}
+	
+	void Reset()
+	{
+		m_bOpponentCheating = false;
+		if (m_bMyTurn)
+			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().Remove(TryMakeMove);
+		m_bMyTurn = false;
+	}
+	
+	void StartSpiritTimer()
+	{
+		if (m_Board.m_iWinner != 0 || m_bOpponentCheating)
+			return;
+		
+		if (m_bMyTurn)
+		{
+			Print("Cheating detected!");
+			m_bOpponentCheating = true;
+			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().Remove(TryMakeMove);
+		}
+		
+		m_bMyTurn = true;
+		SCR_ScenarioFrameworkSystem.GetCallQueuePausable().CallLater(TryMakeMove, m_iDelay * 1000, false);
+	}
+	
+	private void TryMakeMove()
+	{
+		if (m_Board.m_iWinner != 0 || m_bOpponentCheating)
+			return;
+		
+		bool isPlayerPeeking = GetGame().GetPlayerController().GetPlayerCamera().IsSphereVisible(GetOwner().GetOrigin(), 1);
+		if (isPlayerPeeking)
+		{
+			Print("Player is peeking. Delaying move.");
+			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().CallLater(TryMakeMove, m_iDelay * 1000, false);
+			return;
+		}
+		
+		m_bMyTurn = false;
 		int x = 0;
-		AlphaBetaMinMax(state, m_iMinMaxDepth, -float.INFINITY, float.INFINITY, 2, x);
-		return x;
+		AlphaBetaMinMax(m_Board.m_aState, m_iMinMaxDepth, -float.INFINITY, float.INFINITY, m_iAIPlayer, x);
+		m_Board.PlaceStoneImpl(x, m_iAIPlayer);
 	}
 	
 	private float AlphaBetaMinMax(int state[7][6], int depth, float alpha, float beta, int player, out int bestColumn)
 	{
-		if (GetWinner(state) != 0 || depth == 0)
+		int winner = GetWinner(state);
+		if (winner != 0)
 		{
-        	float score = UtilityScore(state, player);
-			if (player == 2)
-				return -score;
+			if (winner == m_iAIPlayer)
+				return 1000;
 			else
-				return score;
+				return -1000;
+		}
+		if (depth == 0)
+		{
+        	return UtilityScore(state, m_iAIPlayer);
 		}
 		
 		int throwAway;
-	    if (player == 2)
+	    if (player == m_iAIPlayer)
 		{
 	        float max_eval = -float.INFINITY;
 	        for (int x; x < 7; x++)
@@ -37,7 +107,7 @@ class RKN_Connect4BoardAIComponent : ScriptComponent
 				
 				int newState[7][6];
 				GetResultingState(state, x, player, newState);
-	            float eval = AlphaBetaMinMax(newState, depth - 1, alpha, beta, 1, throwAway);
+	            float eval = AlphaBetaMinMax(newState, depth - 1, alpha, beta, m_iOpponentPlayer, throwAway);
 	            if (max_eval < eval)
 				{
 					max_eval = eval;
@@ -59,7 +129,7 @@ class RKN_Connect4BoardAIComponent : ScriptComponent
 				
 				int newState[7][6];
 				GetResultingState(state, x, player, newState);
-	            float eval = AlphaBetaMinMax(newState, depth - 1, alpha, beta, 2, throwAway);
+	            float eval = AlphaBetaMinMax(newState, depth - 1, alpha, beta, m_iAIPlayer, throwAway);
 	            if (min_eval > eval)
 				{
 					min_eval = eval;

@@ -1,5 +1,49 @@
 GenericEntity : "{53FFD739D3B660E3}Prefabs/RKN_Connect4Board.et" {
- coords 8640.937 290.601 4298.565
+ components {
+  ActionsManagerComponent "{657C89EB560373E4}" {
+   ActionContexts {
+    UserActionContext "{657E80E42CCD05EE}" {
+     ContextName "default"
+     Position PointInfo "{657E80E42B027A66}" {
+     }
+    }
+   }
+   additionalActions {
+    RKN_Connect4PlaceStoneAction "{657C89A9A5819445}" {
+     Duration 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C588B775}" {
+     Duration 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C572C0BF}" {
+     Duration 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C431F95C}" {
+     Duration 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C7CA9016}" {
+     Duration 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C6276FB4}" {
+     Duration 1
+    }
+    RKN_Connect4PlaceStoneAction "{657C89A9C1EC0B4D}" {
+     Duration 1
+    }
+    RKN_Connect4ResetAction "{657E80E340951AEF}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{657E80E37D80C57F}" {
+      Name "Reset"
+     }
+     ActionTitle "reset"
+     Duration 3
+    }
+   }
+  }
+ }
+ coords 8640.928 290.601 4298.551
  angleY 31.169
 }
 GameEntity : "{6113990D163E5249}Prefabs/Items/Equipment/BalisticTable/BalisticTable_US.et" {
@@ -544,7 +588,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
    GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
     coords 0 0 0
     {
-     GenericEntity : "{B8BADFA9530C38F4}Prefabs/Compositions/Misc/SubCompositions/Foundation_Mortar_US.et" {
+     GenericEntity : "{B3C3E866F3AFFA03}Prefabs/Structures/Military/Camps/Foundations/Foundation_TentUSSR_01.et" {
       components {
        MeshObject "{5111E74D5E891458}" {
         Object "{8B6D5A0BECD1764A}Assets/Structures/Military/Camps/Foundation_TentUS_01/Foundation_TentUS_01.xob"
@@ -553,74 +597,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
       coords -2.69 0.065 -7.356
       angleY -169.156
       {
-       GenericEntity {
-        ID "6186D3A8CE3D2583"
-        coords 1.922 0.232 5.109
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D25A8"
-        coords -2.398 0 5.109
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D25B5"
-        coords -2.398 0.232 5.109
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D25B8"
-        coords 1.922 0 5.109
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D252F"
-        coords -3.084 0 3.805
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D253A"
-        coords -3.124 0 2.303
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D2546"
-        coords 2.68 0 3.587
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D2553"
-        coords -1.042 0 5.846
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D2566"
-        coords 2.662 0 2.072
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D2577"
-        coords 0.475 0 5.894
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D25E3"
-        coords -0.232 0.083 3.146
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D2601"
-        coords 1.921 0 0.609
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D2672"
-        coords 1.766 0 4.754
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D24EB"
-        coords -0.125 0.083 -0.836
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D24F0"
-        coords -0.126 0.083 0.465
-       }
-       GenericEntity {
-        ID "6186D3A8CE3D25C7"
-        coords -2.396 0 0.609
-       }
-       Turret BaseMortar {
-        ID "6186D3A8CE3D250E"
-        coords -0.373 0.014 3.109
-       }
        GenericEntity : "{192A4FF528CB9DD0}Prefabs/Structures/Military/Camps/Foundations/Foundation_TentUS_01.et" {
         coords -6.681 -0.001 0.939
         angleY 169.156
@@ -641,6 +617,24 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         angleY 71.308
         angleZ -27.3
        }
+       $grp GenericEntity : "{64A3A595C0A833AC}Prefabs/Props/Military/Sandbags/Sandbag_01_round_plastic.et" {
+        {
+         coords 1.922 0.232 5.109
+         angleY 45
+        }
+        {
+         coords -2.398 0 5.109
+         angleY -45
+        }
+        {
+         coords -2.398 0.232 5.109
+         angleY -45
+        }
+        {
+         coords 1.922 0 5.109
+         angleY 45
+        }
+       }
        $grp StaticModelEntity : "{7BF8E2A89831D1D6}Prefabs/Structures/Debris/Debris_HouseVillage/Debris_HouseVillage_Wood_Roof_v6.et" {
         {
          coords -0.244 -0.263 -2.231
@@ -652,6 +646,50 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          angleY -12.254
          angleZ -1.456
         }
+       }
+       Turret : "{8094D99689ABE241}Prefabs/Weapons/Mortars/M252/Mortar_M252.et" {
+        coords -0.373 0.014 3.109
+        angleY 2
+       }
+       $grp GenericEntity : "{86BA5E5CD528D5BC}Prefabs/Props/Military/Sandbags/Sandbag_01_end_plastic.et" {
+        {
+         coords -3.084 0 3.805
+         angleY 95.83
+         scale 0.8
+        }
+        {
+         coords -3.124 0 2.303
+         angleY -90.588
+         scale 0.8
+        }
+        {
+         coords 2.68 0 3.587
+         angleY 88.081
+         scale 0.8
+        }
+        {
+         coords -1.042 0 5.846
+         angleY -6.91
+         scale 0.8
+        }
+        {
+         coords 2.662 0 2.072
+         angleY -86.285
+         scale 0.8
+        }
+        {
+         coords 0.475 0 5.894
+         angleY -174.619
+         scale 0.8
+        }
+       }
+       GenericEntity : "{894A1AFDCB71CD0D}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_02.et" {
+        coords -0.232 0.083 3.146
+        angleY 163.319
+       }
+       GenericEntity : "{94D05D599B00BB6E}Prefabs/Compositions/Misc/SubCompositions/Sandbag_round_Cluttered_US_02.et" {
+        coords 1.921 0 0.609
+        angleY 135
        }
        $grp GenericEntity : "{D320BFF57E696FE6}Prefabs/Compositions/Misc/FreeRoamBuilding/SandbagWallSolidPlastic_S_US_01.et" {
         {
@@ -768,6 +806,20 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          angleY 81.1
          angleZ 0.057
         }
+       }
+       $grp GenericEntity : "{F0DCB55B7FDB746B}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Footprints_02.et" {
+        {
+         coords -0.125 0.083 -0.836
+         angleY 90
+        }
+        {
+         coords -0.126 0.083 0.465
+         angleY 90
+        }
+       }
+       GenericEntity : "{F88469B927C43440}Prefabs/Compositions/Misc/SubCompositions/Sandbag_round_Cluttered_US_01.et" {
+        coords -2.396 0 0.609
+        angleY -135
        }
       }
      }

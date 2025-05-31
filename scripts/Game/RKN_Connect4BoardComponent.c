@@ -5,6 +5,9 @@ class RKN_Connect4BoardComponentClass : ScriptComponentClass
 
 class RKN_Connect4BoardComponent : ScriptComponent
 {
+	static int HEIGHT = 6;
+	static int WIDTH = 7;
+	
 	[Attribute()]
 	ref PointInfo m_LowerLeftSlot;
 	
@@ -17,16 +20,33 @@ class RKN_Connect4BoardComponent : ScriptComponent
 	[Attribute()]
 	ResourceName m_Player2;
 	
-	GenericEntity m_aStones[7][6];
+	IEntity m_aStones[7][6];
 	int m_aState[7][6];
 	
-	bool win;
+	ref ScriptInvoker m_OnPlayerMove = new ScriptInvoker();
+	ref ScriptInvoker m_OnReset = new ScriptInvoker();
+	
+	int m_iWinner;
 	
 	void PlaceStone(int x, int player)
 	{
 		PlaceStoneImpl(x, player);
-		if (!win)
-			ExecuteAI();
+		m_OnPlayerMove.Invoke();
+	}
+	
+	void Reset()
+	{
+		m_iWinner = 0;
+		for (int x; x < HEIGHT; x++)
+		{
+			for (int y; y < WIDTH; y++)
+			{
+				m_aState[x][y] = 0;
+				RplComponent.DeleteRplEntity(m_aStones[x][y], false);
+				m_aStones[x][y] = null;
+			}
+		}
+		m_OnReset.Invoke();
 	}
 	
 	void PlaceStoneImpl(int x, int player)
@@ -34,7 +54,7 @@ class RKN_Connect4BoardComponent : ScriptComponent
 		if (!CanPlace(x))
 			return;
 		Print("Player " + player + " places stone at " + x);
-		for (int y; y < 6; y++)
+		for (int y; y < HEIGHT; y++)
 		{
 			if (m_aState[x][y] == 0)
 			{
@@ -43,29 +63,17 @@ class RKN_Connect4BoardComponent : ScriptComponent
 				break;
 			}
 		}
-		int winner = GetWinner(m_aState);
-		if (winner > 0)
+		m_iWinner = GetWinner(m_aState);
+		if (m_iWinner > 0)
 		{
-			win = true;
 			Print("The winner is " + player)
 		}
 	}
 	
 	bool CanPlace(int x)
 	{
-		return m_aState[x][5] == 0;
+		return m_aState[x][HEIGHT-1] == 0;
 	}
-	
-	private void ExecuteAI()
-	{
-		RKN_Connect4BoardAIComponent ai = RKN_Connect4BoardAIComponent.Cast(GetOwner().FindComponent(RKN_Connect4BoardAIComponent));
-		if (!ai)
-			return;
-		
-		int x = ai.GetBestMove(m_aState, 2);
-		PlaceStoneImpl(x, 2);
-	}
-	
 	
 	private int GetWinner(int state[7][6])
 	{
@@ -104,7 +112,7 @@ class RKN_Connect4BoardComponent : ScriptComponent
 		params.Transform[3] = pos;
 		params.Parent = GetOwner();
 		IEntity entity = GetGame().SpawnEntityPrefab(p, null, params);
-		
+		m_aStones[x][y] = entity;
 	}
 	
 	private vector GetSlotPosition(int x, int y)
