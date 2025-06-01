@@ -14,10 +14,10 @@ class RKN_Connect4BoardComponent : ScriptComponent
 	[Attribute()]
 	ref PointInfo m_UpperRightSlot;
 	
-	[Attribute()]
+	[Attribute(params: "et")]
 	ResourceName m_Player1;
 	
-	[Attribute()]
+	[Attribute(params: "et")]
 	ResourceName m_Player2;
 	
 	IEntity m_aStones[7][6];

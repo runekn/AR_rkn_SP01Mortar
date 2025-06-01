@@ -17,9 +17,6 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	[Attribute(defvalue: "true", desc: "Display ignore radius as sphere.", category: "Debug")]
 	bool m_bDebugIgnoreSphere;
 	
-	[Attribute(defvalue: "true", desc: "Observer will first request one shell that will be corrected unto target, before requesting fire for effect.", category: "Mortar target")]
-	bool m_bRequestAdjustFire;
-	
 	[Attribute(defvalue: "1", desc: "How many shells must land within the target radius to execute success actions. Otherwise failure actions will be executed instead.", category: "Mortar target")]
 	int m_iRequiredSplashesOnTarget;
 	
@@ -40,6 +37,9 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	
 	[Attribute(defvalue: "1", desc: "What to do if target failed to be hit required amount of times", UIWidgets.Auto, category: "Mortar target")]
 	ref array<ref SCR_ScenarioFrameworkActionBase> m_aActionsOnFailure;
+	
+	[Attribute(defvalue: "true", desc: "Observer will first request one shell that will be corrected unto target, before requesting fire for effect.", category: "Mortar target")]
+	bool m_bRequestAdjustFire;
 	
 	[Attribute(desc: "From where adjustment are calculated relative of", UIWidgets.Auto, category: "Mortar target")]
 	ref PointInfo m_oObserverPosition;
@@ -133,7 +133,8 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 			if (m_bAdjustFire)
 			{
 				m_bAdjustFire = false;
-				PlayCorrection(m_sAdjustSounds.m_sOnTarget, m_sAdjustSounds.m_sOnTargetSubtitles);
+				SetIntroSignalValues(m_sAdjustSounds.m_iAdjustIntroIndex, m_sAdjustSounds.m_iAdjustOutroIndex);
+				PlayCorrection(m_sAdjustSounds.m_sAdjustOutroSoundEvent, m_sAdjustSounds.m_sAdjustOutroSubtitles);
 			}
 			m_iSplashesOnTarget++;
 			if (++m_iSplashes >= m_iRequiredSplashes)
@@ -157,7 +158,8 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 			//Print("HitDi : " + hitDirection);
 			//Print("Rotated : " + rotatedHit);
 			Print("Off target");
-			PlayCorrection(m_sAdjustSounds.m_sAdjustIntro, m_sAdjustSounds.m_sAdjustIntroSubtitles);
+			SetIntroSignalValues(m_sAdjustSounds.m_iAdjustIntroIndex, m_sAdjustSounds.m_iAdjustOutroIndex);
+			PlayCorrection(m_sAdjustSounds.m_sAdjustIntroSoundEvent, m_sAdjustSounds.m_sAdjustIntroSubtitles);
 			int onLineDirectionIndex = 0;
 			int onLineDistanceIndex = 0;
 			int offsetDirectionIndex = 0;
@@ -204,8 +206,8 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 					subtitles += " " + m_sAdjustSounds.m_sLeftSubtitles + " " + distanceString + " meters.";
 				}
 			}
-			SetSignalValues(onLineDirectionIndex, onLineDistanceIndex, offsetDirectionIndex, offsetDistanceIndex);
-			PlayCorrection(m_sAdjustSounds.m_sCorrectionsSoundEvent, subtitles);
+			SetAdjustSignalValues(onLineDirectionIndex, onLineDistanceIndex, offsetDirectionIndex, offsetDistanceIndex);
+			PlayCorrection(m_sAdjustSounds.m_sAdjustSoundEvent, subtitles);
 		}
 		else
 		{
@@ -255,7 +257,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		return subtitles;
 	}
 	
-	private void SetSignalValues(int onLineDirectionIndex, int onLineDistanceIndex, int offsetDirectionIndex, int offsetDistanceIndex)
+	private void SetAdjustSignalValues(int onLineDirectionIndex, int onLineDistanceIndex, int offsetDirectionIndex, int offsetDistanceIndex)
 	{
 		SCR_ScenarioFrameworkParam<IEntity> entityWrapper = SCR_ScenarioFrameworkParam<IEntity>.Cast(m_SoundActorGetter.Get());
 		SignalsManagerComponent signalManager = SignalsManagerComponent.Cast(entityWrapper.GetValue().FindComponent(SignalsManagerComponent));
@@ -263,6 +265,14 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		signalManager.SetSignalValue(signalManager.FindSignal("OnLineDistance"), onLineDistanceIndex);
 		signalManager.SetSignalValue(signalManager.FindSignal("OffsetDirection"), offsetDirectionIndex);
 		signalManager.SetSignalValue(signalManager.FindSignal("OffsetDistance"), offsetDistanceIndex);
+	}
+	
+	private void SetIntroSignalValues(int introIndex, int outroIndex)
+	{
+		SCR_ScenarioFrameworkParam<IEntity> entityWrapper = SCR_ScenarioFrameworkParam<IEntity>.Cast(m_SoundActorGetter.Get());
+		SignalsManagerComponent signalManager = SignalsManagerComponent.Cast(entityWrapper.GetValue().FindComponent(SignalsManagerComponent));
+		signalManager.SetSignalValue(signalManager.FindSignal("AdjustIntro"), introIndex);
+		signalManager.SetSignalValue(signalManager.FindSignal("AdjustOutro"), outroIndex);
 	}
 	
 	private void PlayCorrection(string soundEventName, string subtitle)

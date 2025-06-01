@@ -32,6 +32,22 @@ AudioSignalResClass {
     8
    }
   }
+  IOPItemInputClass {
+   id 9
+   name "AdjustIntro"
+   tl -196.5 367.5
+   children {
+    10
+   }
+  }
+  IOPItemInputClass {
+   id 11
+   name "AdjustOutro"
+   tl -197.457 459.761
+   children {
+    12
+   }
+  }
  }
  Outputs {
   IOPItemOutputClass {
@@ -58,10 +74,22 @@ AudioSignalResClass {
    tl 205.57 278.823
    input 7
   }
+  IOPItemOutputClass {
+   id 10
+   name "AdjustIntro"
+   tl 204.5 368.5
+   input 9
+  }
+  IOPItemOutputClass {
+   id 12
+   name "AdjustOutro"
+   tl 203.543 460.761
+   input 11
+  }
  }
  compiled IOPCompiledClass {
   visited {
-   389 390 261 262 133 134 5 6
+   645 646 517 518 389 390 261 262 133 134 5 6
   }
   ins {
    IOPCompiledIn {
@@ -82,6 +110,16 @@ AudioSignalResClass {
    IOPCompiledIn {
     data {
      1 196610
+    }
+   }
+   IOPCompiledIn {
+    data {
+     1 262146
+    }
+   }
+   IOPCompiledIn {
+    data {
+     1 327682
     }
    }
   }
@@ -106,8 +144,18 @@ AudioSignalResClass {
      0
     }
    }
+   IOPCompiledOut {
+    data {
+     0
+    }
+   }
+   IOPCompiledOut {
+    data {
+     0
+    }
+   }
   }
-  processed 8
+  processed 12
   version 2
  }
 }

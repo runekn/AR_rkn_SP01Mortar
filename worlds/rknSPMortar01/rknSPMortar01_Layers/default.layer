@@ -165,7 +165,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
           m_iTargetRadius 30
           m_iTargetIgnoreRadius 30
-          m_bRequestAdjustFire 0
           m_eAmmoType SMOKE
           m_aActionsOnCompletion {
            SCR_ScenarioFrameworkActionWaitAndExecute "{657292404946624F}" {
@@ -203,6 +202,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             }
            }
           }
+          m_bRequestAdjustFire 0
          }
         }
         coords -28.726 3.279 -14.341
@@ -849,9 +849,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      GenericEntity testslot : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
       components {
        RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+        m_bShowDebugShapesDuringRuntime 1
         m_iTargetRadius 20
         m_oObserverPosition PointInfo "{6582478E179BF7E7}" {
-         Offset 0 0 -30.2617
+         Offset 33.3271 49.7455 189.2373
         }
         m_SoundActorGetter RKN_GetRadioEntity "{6582478E12FF2D40}" {
         }
@@ -984,7 +985,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 400
             m_iTimeoutInSecondsMax 460
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF93574F359}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BF93574F359}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1A_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1002,7 +1003,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E367E8A5095}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E367E8A5095}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1A_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1033,10 +1034,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask1 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Alpha 1-1 Fire Mission"
+            m_sTaskTitle "Charlie 1-1 Fire Mission"
             m_sTaskDescription "Alpha 1-1 is taking cover in a large building near Pennants Pass. They request an adjust fire mission 100M to their 310 bearing."
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65750C9B8D5FC1DE}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65750C9B8D5FC1DE}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1A_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1064,7 +1065,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 500
             m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF9579DCB28}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BF9579DCB28}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1B_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1082,7 +1083,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E3990DCB49C}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E3990DCB49C}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1B_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1113,10 +1114,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask6 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Alpha 1-1 Fire Mission"
+            m_sTaskTitle "Charlie 1-1 Fire Mission"
             m_sTaskDescription "Alpha 1-1 is taking cover in a building complex called Camurac. They request an adjust fire mission 200M to their 065 bearing."
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65750C9BB7C63BF4}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65750C9BB7C63BF4}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1B_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1144,7 +1145,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 500
             m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF94157A95C}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BF94157A95C}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1C_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1162,7 +1163,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39887CBFED}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39887CBFED}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1C_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1193,10 +1194,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask3 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Alpha 1-2 Fire Mission"
+            m_sTaskTitle "Charlie 1-2 Fire Mission"
             m_sTaskDescription "Charlie 1-2 is requesting an adjust fire mission on grid 071 028"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65750C9BAC7B7406}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65750C9BAC7B7406}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_1C_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1261,7 +1262,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
             m_iTargetRadius 40
             m_iTargetIgnoreRadius 500
-            m_bRequestAdjustFire 0
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
             m_iTimeoutInSeconds 340
@@ -1303,6 +1303,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
+            m_bRequestAdjustFire 0
            }
           }
           coords -1370.23 -120.206 -337
@@ -1310,7 +1311,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask5 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Target test"
+            m_sTaskTitle "Alpha actual FIre mission"
             m_sTaskDescription "072 039"
             m_aActionsOnCreated {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{6576507504941F39}" {
@@ -1390,7 +1391,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask7 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Target test"
+            m_sTaskTitle "Alpha actual FIre mission"
             m_sTaskDescription "073 044"
             m_aActionsOnCreated {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{6576507516C12E7E}" {
@@ -1416,7 +1417,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
             m_iTargetRadius 50
             m_iTargetIgnoreRadius 500
-            m_bRequestAdjustFire 0
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
             m_iTimeoutInSeconds 250
@@ -1458,6 +1458,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
+            m_bRequestAdjustFire 0
            }
           }
           coords -1127.555 -77.525 -339.447
@@ -1465,7 +1466,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask8 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Target test"
+            m_sTaskTitle "Alpha actual FIre mission"
             m_sTaskDescription "075 039"
             m_aActionsOnCreated {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657650751EC6D6E7}" {
@@ -1586,7 +1587,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask9 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Target test"
+            m_sTaskTitle "Bravo 2 Fire mission"
             m_sTaskDescription "109 028"
             m_aActionsOnCreated {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657650752CD51F24}" {
@@ -1666,7 +1667,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask10 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Target test"
+            m_sTaskTitle "India 1-2 Fire mission"
             m_sTaskDescription "091 016"
             m_aActionsOnCreated {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657650753C742654}" {
@@ -1692,7 +1693,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
             m_iTargetRadius 35
             m_iTargetIgnoreRadius 500
-            m_bRequestAdjustFire 0
             m_iRequiredSplashesOnTarget 4
             m_iRequiredSplashes 5
             m_iTimeoutInSeconds 100
@@ -1734,6 +1734,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               }
              }
             }
+            m_bRequestAdjustFire 0
            }
           }
           coords 1269.456 4.753 -1722.883
@@ -1741,7 +1742,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask11 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Target test"
+            m_sTaskTitle "Bravo 2 Fire mission"
             m_sTaskDescription "099 025"
             m_aActionsOnCreated {
              SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65765075343C0A2C}" {
