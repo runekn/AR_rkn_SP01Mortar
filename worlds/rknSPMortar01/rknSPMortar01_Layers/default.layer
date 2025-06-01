@@ -472,6 +472,29 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 8638.044 289.596 4306.019
   {
+   GenericEntity : "{028D9156F90205DE}Prefabs/Props/Military/Camps/ConstructionMaterialPacked_WoodPlanks_01_US.et" {
+    coords -13.154 0.363 5.859
+   }
+   $grp GenericEntity : "{0B49B43A41505E92}Prefabs/Structures/Military/CamoNets/US/CamoNet_Folded_US.et" {
+    {
+     coords -12.736 0.292 4.94
+     angleY -91.111
+    }
+    {
+     coords 4.03 0.031 -3.834
+     angleY 3.066
+    }
+   }
+   GenericEntity : "{0ED7499549352351}Prefabs/Props/Civilian/LampKerosene_01/Dst/LampKerosene_01_DST_01_military.et" {
+    coords 2.884 0.942 -8.079
+   }
+   GenericEntity : "{192A4FF528CB9DD0}Prefabs/Structures/Military/Camps/Foundations/Foundation_TentUS_01.et" {
+    coords -1.758 0.004 -0.521
+   }
+   GenericEntity : "{34D385CE8A17BD61}Prefabs/Structures/Military/CamoNets/US/CamoNet_AssemblyKit_US.et" {
+    coords 5.344 0.039 -3.976
+    angleY 21.316
+   }
    $grp StaticModelEntity : "{39C308BBB5945B85}Prefabs/Props/Military/Furniture/ChairMilitary_US_02.et" {
     {
      coords 2.286 0.045 -7.826
@@ -647,7 +670,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          angleZ -1.456
         }
        }
-       Turret : "{8094D99689ABE241}Prefabs/Weapons/Mortars/M252/Mortar_M252.et" {
+       Turret BaseMortar : "{8094D99689ABE241}Prefabs/Weapons/Mortars/M252/Mortar_M252.et" {
         coords -0.373 0.014 3.109
         angleY 2
        }
@@ -823,6 +846,20 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        }
       }
      }
+     GenericEntity testslot : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
+      components {
+       RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+        m_iTargetRadius 20
+        m_oObserverPosition PointInfo "{6582478E179BF7E7}" {
+         Offset 0 0 -30.2617
+        }
+        m_SoundActorGetter RKN_GetRadioEntity "{6582478E12FF2D40}" {
+        }
+        m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
+       }
+      }
+      coords -34.845 -49.163 -193.996
+     }
      GenericEntity SlotMarker1 : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
       components {
        SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
@@ -843,6 +880,38 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
     coords 2.982 0.042 -7.658
     angleY -90
    }
+   StaticModelEntity : "{7BF8E2A89831D1D6}Prefabs/Structures/Debris/Debris_HouseVillage/Debris_HouseVillage_Wood_Roof_v6.et" {
+    coords -1.466 -0.305 -1.773
+    angleX -3.175
+    angleY 90.237
+   }
+   GenericEntity : "{A5E64994411BA6A0}Prefabs/Props/Civilian/Pen_01/Pen_01_base.et" {
+    coords 3.141 0.949 -7.734
+    angleY 22.987
+   }
+   GenericEntity : "{A735A93A8AD4077A}Prefabs/Props/PersonalBelongings/Papers/Papers_Personal_US.et" {
+    coords 3.21 0.942 -7.713
+    angleY -103.555
+   }
+   GenericEntity : "{B2ACD1E4F87BC9B0}Prefabs/Structures/Signs/Military/SignCheckpoint_01_base.et" {
+    coords -25.26 -1.35 -1.799
+    angleY -57.408
+   }
+   GenericEntity : "{B3E8911E396DE447}Prefabs/Props/Services/FireExtinguisherBox_01_Shovel.et" {
+    coords 1.405 0.13 -6.836
+    angleX 81.503
+    angleY 14.33
+    angleZ 179.213
+   }
+   GenericEntity : "{D174C165E264E087}Prefabs/Structures/Signs/Military/SignRectangle_01_140x100/Sign_BaseEntrance_US_01.et" {
+    coords -15.561 0.8 5.965
+    angleX 69.092
+    angleY -96.571
+    angleZ -8.71
+   }
+   StaticModelEntity : "{E91113E3D09F83CD}Prefabs/Structures/Military/Camps/TentUS_01/TentUS_01_Assembled_camonet_foundation.et" {
+    coords 8.827 0.291 11.603
+   }
    GenericEntity : "{F2539FA5706E51E4}Prefabs/Items/Equipment/Binoculars/Binoculars_B12/Binoculars_B12.et" {
     coords -0.34 0.532 -10.69
     angleY -36.385
@@ -858,6 +927,17 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
       RKN_LayerTask "{5A2283E9F84958A1}" {
        m_SpawnChildren RANDOM_ONE
        m_eActivationType ON_TRIGGER_ACTIVATION
+       m_aActivationActions {
+        SCR_ScenarioFrameworkActionWaitAndExecute "{657EF7DEC69D2480}" {
+         m_iDelayInSeconds 4
+         m_aActions {
+          SCR_ScenarioFrameworkActionShowHint "{657EF7DEFD57B2D7}" {
+           m_sTitle "Call for fire"
+           m_sText "Call for fire is a protocol"
+          }
+         }
+        }
+       }
        m_aTriggerActionsOnFinish {
         SCR_ScenarioFrameworkActionIncrementCounter "{6576500049254A19}" {
          m_sCounterName "MissionCounter"
@@ -1105,7 +1185,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D99920623}" {
             }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
+            m_sAdjustSoundConfig "{765221AE35B0D36C}Configs/VoiceData/FireMission1C.conf"
            }
           }
           coords -1444.784 -128.37 -1511.238
@@ -1302,7 +1382,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D9444E39C}" {
             }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
+            m_sAdjustSoundConfig "{D6171F3831F0C690}Configs/VoiceData/FireMission2B.conf"
            }
           }
           coords -1410.897 -164.989 232.889
@@ -1498,7 +1578,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D804E99C0}" {
             }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
+            m_sAdjustSoundConfig "{7CF771E383A020EB}Configs/VoiceData/FireMission3C.conf"
            }
           }
           coords 2329.271 -270.879 -1415.314
@@ -1578,7 +1658,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             }
             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D85C7EEAF}" {
             }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
+            m_sAdjustSoundConfig "{11DB8FA5C4A6859C}Configs/VoiceData/FireMission3A.conf"
            }
           }
           coords 606.293 -203.345 -2753.92
@@ -2007,7 +2087,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
             m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_iTargetShotCount 1
+             m_iTargetShotCount 2
             }
            }
           }
@@ -2017,7 +2097,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
             m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_iTargetShotCount 1
+             m_iTargetShotCount 2
             }
            }
           }
@@ -2027,7 +2107,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
             m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_iTargetShotCount 1
+             m_iTargetShotCount 2
             }
            }
           }
@@ -2037,7 +2117,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
             m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_iTargetShotCount 1
+             m_iTargetShotCount 2
             }
            }
           }
@@ -2048,7 +2128,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
             m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
              m_fCompletionRadius 5
-             m_iTargetShotCount 1
+             m_iTargetShotCount 2
             }
            }
           }
@@ -2058,7 +2138,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
             m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_iTargetShotCount 1
+             m_iTargetShotCount 2
             }
            }
           }

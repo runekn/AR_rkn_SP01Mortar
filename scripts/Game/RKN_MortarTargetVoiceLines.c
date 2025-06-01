@@ -8,44 +8,49 @@ class RKN_MortarTargetVoiceLines
 	string m_sAdjustIntroSubtitles;
 	
 	[Attribute()]
-	string m_sOver;
+	string m_sCorrectionsSoundEvent;
 	
-	[Attribute(defvalue: "Add")]
-	string m_sOverSubtitles;
-	
-	[Attribute()]
-	string m_sShort;
+	[Attribute(defvalue: "1")]
+	int m_iOverIndex;
 	
 	[Attribute(defvalue: "Drop")]
+	string m_sOverSubtitles;
+	
+	[Attribute(defvalue: "2")]
+	int m_iShortIndex;
+	
+	[Attribute(defvalue: "Add")]
 	string m_sShortSubtitles;
 	
-	[Attribute()]
-	string m_sLeft;
+	[Attribute(defvalue: "1")]
+	int m_iLeftIndex;
 	
 	[Attribute(defvalue: "Right")] // opposite since they are directions for next shot
 	string m_sLeftSubtitles;
 	
-	[Attribute()]
-	string m_sRight;
+	[Attribute(defvalue: "2")]
+	int m_iRightIndex;
 	
 	[Attribute(defvalue: "Left")] // opposite since they are directions for next shot
 	string m_sRightSubtitles;
 	
-	[Attribute()]
-	string m_sRange300Meter;
-	
-	[Attribute()]
-	string m_sRange200Meter;
-	
-	[Attribute()]
-	string m_sRange100Meter;
-	
-	[Attribute()]
-	string m_sRange50Meter;
+	[Attribute(desc: "Must be in ascending order")]
+	ref array<ref RKN_MortarTargetDistanceConfig> m_aDistances;
 	
 	[Attribute()]
 	string m_sOnTarget;
 	
 	[Attribute()]
 	string m_sOnTargetSubtitles;
+}
+
+[BaseContainerProps(configRoot: false)]
+class RKN_MortarTargetDistanceConfig
+{
+	[Attribute()]
+	int m_iDistance;
+	[Attribute()]
+	int m_iIndex;
+	[Attribute(desc: "Leave empty to use distance")]
+	string m_sSubtitles;
 }

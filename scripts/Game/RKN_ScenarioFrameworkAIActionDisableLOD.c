@@ -1,6 +1,7 @@
 [BaseContainerProps(), SCR_ContainerAIActionTitle()]
 modded class SCR_ScenarioFrameworkAIActionDisableLOD
 {
+	// Remember if DisableLOD has been used. To fix bug where DisableLOD will be reset after using mortar.
 	override void OnActivate()
 	{
 		super.OnActivate();

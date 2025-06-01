@@ -158,26 +158,54 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 			//Print("Rotated : " + rotatedHit);
 			Print("Off target");
 			PlayCorrection(m_sAdjustSounds.m_sAdjustIntro, m_sAdjustSounds.m_sAdjustIntroSubtitles);
-			if (rotatedHit[0] > 0)
-			{
-				Print("RIGHT " + rotatedHit[0] + " meters");
-				PlayCorrectionDistance(m_sAdjustSounds.m_sRight, m_sAdjustSounds.m_sRightSubtitles, rotatedHit[0]);
-			}
-			else
-			{
-				Print("LEFT " + -rotatedHit[0] + " meters");
-				PlayCorrectionDistance(m_sAdjustSounds.m_sLeft, m_sAdjustSounds.m_sLeftSubtitles, -rotatedHit[0]);
-			}
+			int onLineDirectionIndex = 0;
+			int onLineDistanceIndex = 0;
+			int offsetDirectionIndex = 0;
+			int offsetDistanceIndex = 0;
+			string subtitles = "";
 			if (rotatedHit[2] > 0)
 			{
 				Print("OVER " + rotatedHit[2] + " meters");
-				PlayCorrectionDistance(m_sAdjustSounds.m_sOver, m_sAdjustSounds.m_sOverSubtitles, rotatedHit[2]);
+				string distanceString = GetDistanceIndex(rotatedHit[2], onLineDistanceIndex);
+				if (onLineDistanceIndex > 0)
+				{
+					onLineDirectionIndex = m_sAdjustSounds.m_iOverIndex;
+					subtitles += m_sAdjustSounds.m_sOverSubtitles + " " + distanceString + " meters.";
+				}
+				
 			}
 			else
 			{
 				Print("SHORT " + -rotatedHit[2] + " meters");
-				PlayCorrectionDistance(m_sAdjustSounds.m_sShort, m_sAdjustSounds.m_sShortSubtitles, -rotatedHit[2]);
+				string distanceString = GetDistanceIndex(-rotatedHit[2], onLineDistanceIndex);
+				if (onLineDistanceIndex > 0)
+				{
+					onLineDirectionIndex = m_sAdjustSounds.m_iShortIndex;
+					subtitles += m_sAdjustSounds.m_sShortSubtitles + " " + distanceString + " meters.";
+				}
 			}
+			if (rotatedHit[0] > 0)
+			{
+				Print("RIGHT " + rotatedHit[0] + " meters");
+				string distanceString = GetDistanceIndex(rotatedHit[0], offsetDistanceIndex);
+				if (offsetDistanceIndex > 0)
+				{
+					offsetDirectionIndex = m_sAdjustSounds.m_iRightIndex;
+					subtitles += " " + m_sAdjustSounds.m_sRightSubtitles + " " + distanceString + " meters.";
+				}
+			}
+			else
+			{
+				Print("LEFT " + -rotatedHit[0] + " meters");
+				string distanceString = GetDistanceIndex(-rotatedHit[0], offsetDistanceIndex);
+				if (offsetDistanceIndex > 0)
+				{
+					offsetDirectionIndex = m_sAdjustSounds.m_iLeftIndex;
+					subtitles += " " + m_sAdjustSounds.m_sLeftSubtitles + " " + distanceString + " meters.";
+				}
+			}
+			SetSignalValues(onLineDirectionIndex, onLineDistanceIndex, offsetDirectionIndex, offsetDistanceIndex);
+			PlayCorrection(m_sAdjustSounds.m_sCorrectionsSoundEvent, subtitles);
 		}
 		else
 		{
@@ -208,36 +236,33 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		Deactivate(GetOwner());
 	}
 	
-	private void PlayCorrectionDistance(string directionSoundEventName, string directionSubtitle, int d)
+	private string GetDistanceIndex(float d, out int index)
 	{
-		string eventName;
-		string subtitle;
-		if (d > 300)
+		string subtitles = "";
+		for (int i = m_sAdjustSounds.m_aDistances.Count() - 1; i >= 0; i--)
 		{
-			eventName = m_sAdjustSounds.m_sRange300Meter;
-			subtitle = "300 meters";
+			RKN_MortarTargetDistanceConfig config = m_sAdjustSounds.m_aDistances[i];
+			if (d > config.m_iDistance)
+			{
+				if (config.m_sSubtitles && !config.m_sSubtitles.IsEmpty())
+					subtitles = config.m_sSubtitles;
+				else
+					subtitles = string.ToString(config.m_iDistance);
+				index = config.m_iIndex;
+				break;
+			}
 		}
-		else if (d > 200)
-		{
-			eventName = m_sAdjustSounds.m_sRange200Meter;
-			subtitle = "200 meters";
-		}
-		else if (d > 100)
-		{
-			eventName = m_sAdjustSounds.m_sRange100Meter;
-			subtitle = "100 meters";
-		}
-		else if (d > 50)
-		{
-			eventName = m_sAdjustSounds.m_sRange50Meter;
-			subtitle = "50 meters";
-		}
-		else
-		{
-			return;
-		}
-		PlayCorrection(directionSoundEventName, directionSubtitle);
-		PlayCorrection(eventName, subtitle);
+		return subtitles;
+	}
+	
+	private void SetSignalValues(int onLineDirectionIndex, int onLineDistanceIndex, int offsetDirectionIndex, int offsetDistanceIndex)
+	{
+		SCR_ScenarioFrameworkParam<IEntity> entityWrapper = SCR_ScenarioFrameworkParam<IEntity>.Cast(m_SoundActorGetter.Get());
+		SignalsManagerComponent signalManager = SignalsManagerComponent.Cast(entityWrapper.GetValue().FindComponent(SignalsManagerComponent));
+		signalManager.SetSignalValue(signalManager.FindSignal("OnLineDirection"), onLineDirectionIndex);
+		signalManager.SetSignalValue(signalManager.FindSignal("OnLineDistance"), onLineDistanceIndex);
+		signalManager.SetSignalValue(signalManager.FindSignal("OffsetDirection"), offsetDirectionIndex);
+		signalManager.SetSignalValue(signalManager.FindSignal("OffsetDistance"), offsetDistanceIndex);
 	}
 	
 	private void PlayCorrection(string soundEventName, string subtitle)

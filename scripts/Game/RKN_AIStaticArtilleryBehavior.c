@@ -1,5 +1,6 @@
 modded class SCR_AIStaticArtilleryBehavior
 {
+	// Fix bug where DisableLOD be reset after using mortar
 	override void OnActionDeselected()
 	{
 		AIAgent agent = m_Utility.GetOwner();
