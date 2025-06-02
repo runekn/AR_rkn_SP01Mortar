@@ -1,6 +1,8 @@
-class RKN_TakeShellAction : SCR_ScriptedUserAction
+class RKN_TakePrefabAction : SCR_ScriptedUserAction
 {
-	protected SCR_FilteredInventoryStorageComponentClass m_Data;
+	[Attribute(params: "et", desc: "Prefab that is taken to hand")]
+	ResourceName m_sPrefabName;
+	
 	protected SCR_InventoryStorageManagerComponent m_PlayerStorageManager;
 	protected SCR_GadgetManagerComponent m_GadgetManager;
 	protected BaseInventoryStorageComponent m_TargetStorage;
@@ -11,20 +13,12 @@ class RKN_TakeShellAction : SCR_ScriptedUserAction
 	//------------------------------------------------------------------------------------------------
 	override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
 	{
-		SCR_FilteredInventoryStorageComponent storageComp = SCR_FilteredInventoryStorageComponent.Cast(pOwnerEntity.FindComponent(SCR_FilteredInventoryStorageComponent));
-		if (!storageComp)
-			return;
-
-		m_Data = SCR_FilteredInventoryStorageComponentClass.Cast(storageComp.GetComponentData(pOwnerEntity));
 		m_TargetStorage = BaseInventoryStorageComponent.Cast(pOwnerEntity.FindComponent(BaseInventoryStorageComponent));
 	}
 
 	//------------------------------------------------------------------------------------------------
 	override bool CanBeShownScript(IEntity user)
 	{
-		if (!m_Data || m_Data.GetNumberOfAllowedTypes() < 1)
-			return false;
-
 		if (!m_TargetStorage)
 			return false;
 
@@ -47,9 +41,8 @@ class RKN_TakeShellAction : SCR_ScriptedUserAction
 		if (!m_PlayerStorageManager)
 			return false;
 		
-		array<IEntity> outItems = {};
-		m_TargetStorage.GetAll(outItems);
-		if (outItems.Count() == 0)
+		IEntity entity = FindFirstByPrefab();
+		if (entity == null)
 		{
 			SetCannotPerformReason(REASON_NO_ITEMS);
 			return false;
@@ -70,13 +63,26 @@ class RKN_TakeShellAction : SCR_ScriptedUserAction
 		if (!m_PlayerStorageManager || !m_TargetStorage)
 			return;
 
+		IEntity entity = FindFirstByPrefab();
+		if (entity == null)
+			return;
+		
+		m_PlayerStorageManager.InsertItem(entity, null, m_TargetStorage, null);
+		m_GadgetManager = SCR_GadgetManagerComponent.Cast(pUserEntity.FindComponent(SCR_GadgetManagerComponent));
+		m_GadgetManager.SetGadgetMode(entity, EGadgetMode.IN_HAND);
+	}
+	
+	private IEntity FindFirstByPrefab()
+	{
 		array<IEntity> outItems = {};
 		m_TargetStorage.GetAll(outItems);
-		if (outItems.Count() > 0)
+		foreach (IEntity entity : outItems)
 		{
-			m_PlayerStorageManager.InsertItem(outItems[0], null, m_TargetStorage, null);
-			m_GadgetManager = SCR_GadgetManagerComponent.Cast(pUserEntity.FindComponent(SCR_GadgetManagerComponent));
-			m_GadgetManager.SetGadgetMode(outItems[0], EGadgetMode.IN_HAND);
+			if (entity.GetPrefabData().GetPrefabName() == m_sPrefabName)
+			{
+				return entity;
+			}
 		}
+		return null;
 	}
 }

@@ -3,7 +3,7 @@ SCR_ChimeraCharacter : "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_
  components {
   SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
    Filenames + {
-    "{2B919BAC674D1678}Sounds/Mortar_Corrections.acp"
+    "{E154C5FBE3342FFC}Sounds/VO_Officer.acp"
    }
   }
  }

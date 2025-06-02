@@ -15,16 +15,16 @@ GenericEntity : "{3D5594CC62AAFB88}Prefabs/Props/Military/AmmoBoxes/AmmoBox_81mm
   }
   ActionsManagerComponent "{5476B36C403D4CC0}" {
    additionalActions {
-    RKN_TakeShellAction "{6572925DD660E792}" {
+    RKN_TakePrefabAction "{658451FF1232B575}" {
      ParentContextList {
       "default"
      }
-     UIInfo UIInfo "{6572925DD234B3DC}" {
-      Name "Take shell in hand"
+     UIInfo UIInfo "{658451FF4FBEE485}" {
+      Name "Take Shell"
+      Icon "{55B22CEB4340AB0E}UI/Textures/UserActions/pickupaction.edds"
      }
      Duration 1
-     m_bLoopAction 0
-     m_bLowerWeaponOnUse 1
+     m_sPrefabName "{38BAE094333E31BF}Prefabs/Weapons/Ammo/Ammo_Shell_81mm_HE_M821.et"
     }
    }
   }

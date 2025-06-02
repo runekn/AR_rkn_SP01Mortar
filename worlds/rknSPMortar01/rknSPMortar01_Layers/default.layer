@@ -1,3 +1,15 @@
+GenericEntity : "{47DA8DDAA35089CC}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_Smoke.et" {
+ components {
+  ActionsManagerComponent "{5476B36C403D4CC0}" {
+   additionalActions {
+    RKN_TakePrefabAction "{658451FF1232B575}" {
+    }
+   }
+  }
+ }
+ coords 8632.926 289.63 4297.111
+ angleY 100.904
+}
 GenericEntity : "{53FFD739D3B660E3}Prefabs/RKN_Connect4Board.et" {
  components {
   ActionsManagerComponent "{657C89EB560373E4}" {
@@ -51,21 +63,6 @@ GameEntity : "{6113990D163E5249}Prefabs/Items/Equipment/BalisticTable/BalisticTa
  angleY -41.706
 }
 $grp GenericEntity : "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et" {
- RKN_Filled_AmmoBox_81mm_Smoke {
-  components {
-   SCR_FilteredInventoryStorageComponent "{5476A2F100DF4EFF}" {
-    MultiSlots {
-     MultiSlotConfiguration "{656468780133778E}" {
-      SlotTemplate InventoryStorageSlot test {
-       Prefab "{F7807293E94D3C88}Prefabs/Weapons/Ammo/Ammo_Shell_81mm_Smoke_M819.et"
-      }
-     }
-    }
-   }
-  }
-  coords 8632.915 289.651 4297.094
-  angleY 106.434
- }
  {
   coords 8632.942 289.693 4296.265
   angleX -90
@@ -81,23 +78,6 @@ SCR_ScenarioFrameworkLogicCounter MissionCounter : "{6C1792C71DCAFD55}Prefabs/Sy
 }
 $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
  Insertion_area {
-  components {
-   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
-    m_aActivationActions {
-     SCR_ScenarioFrameworkActionAddItemToInventory "{65646870EC797CD3}" {
-      m_Getter SCR_ScenarioFrameworkGetEntityByName "{65646870E9AADBF7}" {
-       m_sEntityName "M151A1"
-      }
-      m_aPrefabFilter {
-       SCR_ScenarioFrameworkPrefabFilterCountNoInheritance "{65646870E8398440}" {
-        m_sPrefabName "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et"
-        m_iPrefabCount 9
-       }
-      }
-     }
-    }
-   }
-  }
   coords 8633.376 289.644 4302.427
   {
    GenericEntity InsertionLayer : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -106,6 +86,17 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      GenericEntity SpawnPointSlot : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
       components {
        SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+        m_aPlugins {
+         SCR_ScenarioFrameworkPluginSpawnPoint "{658451F3A5C0F63C}" {
+          m_aActionsOnSpawnPointUsed {
+           SCR_ScenarioFrameworkActionSpawnObjects "{658451F3DCFF8EF9}" {
+            m_aNameOfObjectsToSpawnOnActivation {
+             "Ally_layer"
+            }
+           }
+          }
+         }
+        }
         m_sObjectToSpawn "{4FA04722BD0020CA}Prefabs/MP/Spawning/SpawnPoint_US_SP.et"
        }
       }
@@ -210,6 +201,16 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        GenericEntity SlotTask2 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
         components {
          SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
+          m_aActivationActions {
+           RKN_VoiceOverPlayFiremissionSequence "{658451CD4D444AF8}" {
+            m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+            m_sSequenceName "AMBUSH_REQUEST"
+            m_ActorGetter RKN_GetRadioEntity "{658451CD4E96E387}" {
+            }
+            m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{658451CD49FE669B}" {
+            }
+           }
+          }
           m_sTaskTitle "Assist checkpoint guards"
           m_sTaskDescription "A nearby checkpoint is under attack. Spot the attackers and send some shells their way before it is too late."
           m_aActionsOnFinished {
@@ -260,7 +261,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
                   }
                  }
                 }
-                SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BFA8E5FCB34}" {
+                RKN_VoiceOverPlayFiremissionSequence "{65790BFA8E5FCB34}" {
                  m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
                  m_sSequenceName "AMBUSH_TIMEOUT"
                  m_ActorGetter RKN_GetRadioEntity "{65790BFA8628D768}" {
@@ -312,7 +313,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
                   m_sLayerTaskName "AmbushTask_layer"
                  }
                 }
-                SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BFD2F93B408}" {
+                RKN_VoiceOverPlayFiremissionSequence "{65790BFD2F93B408}" {
                  m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
                  m_sSequenceName "AMBUSH_SUCCESS"
                  m_ActorGetter RKN_GetRadioEntity "{65790BFD2987E738}" {
@@ -511,7 +512,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      }
      SCR_CommunicationSoundComponent "{6561090BA2ABAC68}" {
       Filenames {
-       "{2B919BAC674D1678}Sounds/Mortar_Corrections.acp"
+       "{2B919BAC674D1678}Sounds/VO_Radio.acp"
       }
       IncludeInactive 1
      }
@@ -846,21 +847,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        }
       }
      }
-     GenericEntity testslot : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
-      components {
-       RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-        m_bShowDebugShapesDuringRuntime 1
-        m_iTargetRadius 20
-        m_oObserverPosition PointInfo "{6582478E179BF7E7}" {
-         Offset 33.3271 49.7455 189.2373
-        }
-        m_SoundActorGetter RKN_GetRadioEntity "{6582478E12FF2D40}" {
-        }
-        m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
-       }
-      }
-      coords -34.845 -49.163 -193.996
-     }
      GenericEntity SlotMarker1 : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
       components {
        SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
@@ -982,8 +968,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 400
-            m_iTimeoutInSecondsMax 460
+            m_iTimeoutInSeconds 500
+            m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
              RKN_VoiceOverPlayFiremissionSequence "{65790BF93574F359}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1267,7 +1253,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 340
             m_iTimeoutInSecondsMax 400
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BE63D9AD3E8}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BE63D9AD3E8}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2C_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1285,7 +1271,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39DE14A76A}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39DE14A76A}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2C_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1314,7 +1300,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_sTaskTitle "Alpha actual FIre mission"
             m_sTaskDescription "072 039"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{6576507504941F39}" {
+             RKN_VoiceOverPlayFiremissionSequence "{6576507504941F39}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2C_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1342,7 +1328,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 540
             m_iTimeoutInSecondsMax 600
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BE6FF12AB20}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BE6FF12AB20}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2B_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1360,7 +1346,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39A4484E25}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39A4484E25}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2B_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1394,7 +1380,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_sTaskTitle "Alpha actual FIre mission"
             m_sTaskDescription "073 044"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{6576507516C12E7E}" {
+             RKN_VoiceOverPlayFiremissionSequence "{6576507516C12E7E}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2B_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1422,7 +1408,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 250
             m_iTimeoutInSecondsMax 400
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BF975FFF85F}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BF975FFF85F}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2A_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1440,7 +1426,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39B155B735}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39B155B735}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2A_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1469,7 +1455,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_sTaskTitle "Alpha actual FIre mission"
             m_sTaskDescription "075 039"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657650751EC6D6E7}" {
+             RKN_VoiceOverPlayFiremissionSequence "{657650751EC6D6E7}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_2A_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1538,7 +1524,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 400
             m_iTimeoutInSecondsMax 460
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BEF75CE1275}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BEF75CE1275}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3C_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1556,7 +1542,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39EF434969}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39EF434969}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3C_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1590,7 +1576,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_sTaskTitle "Bravo 2 Fire mission"
             m_sTaskDescription "109 028"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657650752CD51F24}" {
+             RKN_VoiceOverPlayFiremissionSequence "{657650752CD51F24}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3C_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1618,7 +1604,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 400
             m_iTimeoutInSecondsMax 500
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BE65B767C9B}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BE65B767C9B}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3A_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1636,7 +1622,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39CB198149}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39CB198149}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3A_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1670,7 +1656,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_sTaskTitle "India 1-2 Fire mission"
             m_sTaskDescription "091 016"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{657650753C742654}" {
+             RKN_VoiceOverPlayFiremissionSequence "{657650753C742654}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3A_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1698,7 +1684,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTimeoutInSeconds 100
             m_iTimeoutInSecondsMax 120
             m_aActionsOnCompletion {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BEF30BF49CA}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65790BEF30BF49CA}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3B_SUCCESS"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1716,7 +1702,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
              }
             }
             m_aActionsOnFailure {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65784E39FA534BD5}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65784E39FA534BD5}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3B_TIMEOUT"
               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
@@ -1745,7 +1731,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_sTaskTitle "Bravo 2 Fire mission"
             m_sTaskDescription "099 025"
             m_aActionsOnCreated {
-             SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65765075343C0A2C}" {
+             RKN_VoiceOverPlayFiremissionSequence "{65765075343C0A2C}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
               m_sSequenceName "FIRESUPPORT_3B_REQUEST"
               m_ActorGetter RKN_GetRadioEntity "{65750C9B8B2845F1}" {
@@ -1767,13 +1753,51 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
  }
  AllyJeep_area {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_aActivationActions {
+     SCR_ScenarioFrameworkActionAddItemToInventory "{658451F2170D41CE}" {
+      m_Getter SCR_ScenarioFrameworkGetEntityByName "{65646870E9AADBF7}" {
+       m_sEntityName "M151A1"
+      }
+      m_aPrefabFilter {
+       SCR_ScenarioFrameworkPrefabFilterCountNoInheritance "{65646870E8398440}" {
+        m_sPrefabName "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et"
+        m_iPrefabCount 9
+       }
+      }
+     }
+    }
+   }
+  }
   coords 8364.062 250.091 4525.432
   {
    $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
-    Layer2 {
+    Ally_layer {
+     components {
+      SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+       m_eActivationType ON_TRIGGER_ACTIVATION
+      }
+     }
      coords 104.67 23.091 -156.183
      {
       Vehicle M151A1 : "{47D94E1193A88497}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport.et" {
+       components {
+        ActionsManagerComponent "{C97BE5489221AE18}" {
+         additionalActions {
+          RKN_TakePrefabAction "{658451FDC9448274}" {
+           ParentContextList {
+            "storage"
+           }
+           UIInfo UIInfo "{658451FDC5FA58A3}" {
+            Name "Take HE Crate"
+           }
+           Duration 1
+           m_sPrefabName "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et"
+          }
+         }
+        }
+       }
        coords 1.157 0.231 -1.123
        angleY 135.791
       }

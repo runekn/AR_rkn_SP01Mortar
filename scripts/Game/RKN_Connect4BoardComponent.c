@@ -37,9 +37,9 @@ class RKN_Connect4BoardComponent : ScriptComponent
 	void Reset()
 	{
 		m_iWinner = 0;
-		for (int x; x < HEIGHT; x++)
+		for (int x; x < WIDTH; x++)
 		{
-			for (int y; y < WIDTH; y++)
+			for (int y; y < HEIGHT; y++)
 			{
 				m_aState[x][y] = 0;
 				RplComponent.DeleteRplEntity(m_aStones[x][y], false);

@@ -1,0 +1,423 @@
+AudioClass {
+ signals {
+  SignalClass {
+   id 2061
+   name "Signal Directivitz"
+   tl -548.384 601.439
+   res "{43C50EB8DB8DE747}Sounds/_SharedData/Signals/Weapons/Weapon_Shooting_Directivity.sig"
+   inputsport {
+    1
+   }
+   outputsport {
+    5
+   }
+   inputvalues {
+    0
+   }
+   inputvaluesmin {
+    0
+   }
+   inputvaluesmax {
+    1
+   }
+   path "{43C50EB8DB8DE747}Sounds/_SharedData/Signals/Weapons/Weapon_Shooting_Directivity.sig"
+  }
+  SignalClass {
+   id 3085
+   name "Signal Occlusion"
+   tl -540.956 682.982
+   res "{2DE6099BBD60C620}Sounds/_SharedData/Signals/Character/Character_Occlusion.sig"
+   inputsport {
+    2 8 20 50
+   }
+   outputsport {
+    36
+   }
+   inputvalues {
+    0 1 0 1000
+   }
+   inputvaluesmin {
+    0 0 0 0
+   }
+   inputvaluesmax {
+    1 1 1 10000
+   }
+   path "{2DE6099BBD60C620}Sounds/_SharedData/Signals/Character/Character_Occlusion.sig"
+  }
+  SignalClass {
+   id 6157
+   name "Signal Reverb"
+   tl 633.612 210.065
+   res "{90D469F083C44823}Sounds/_SharedData/Signals/Reverb/Reverb_Character.sig"
+   inputsport {
+    1 35 40 112 136 147
+   }
+   outputsport {
+    34 39 105 106 107 110
+   }
+   inputvalues {
+    0 1 1 15627 0 16000
+   }
+   inputvaluesmin {
+    0 0 0 0 0 0
+   }
+   inputvaluesmax {
+    100 1 1 16000 1 16000
+   }
+   path "{90D469F083C44823}Sounds/_SharedData/Signals/Reverb/Reverb_Character.sig"
+  }
+ }
+ sounds {
+  SoundClass : "{8CFE708E49BCF502}Sounds/_SharedData/Configs/Sound/Tutorial/Sound_Tutorial_VO_Direct_Normal.conf" {
+   id 11273
+   name "SOUND_OFFICER_INTRO_2"
+   version 5
+   tl 329.539 616.873
+   parent "{8CFE708E49BCF502}Sounds/_SharedData/Configs/Sound/Tutorial/Sound_Tutorial_VO_Direct_Normal.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 13330
+       port 65
+      }
+     }
+    }
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass : "{8CFE708E49BCF502}Sounds/_SharedData/Configs/Sound/Tutorial/Sound_Tutorial_VO_Direct_Normal.conf" {
+   id 15369
+   name "SOUND_OFFICER_INTRO_1"
+   version 5
+   tl 336.81 413.6
+   parent "{8CFE708E49BCF502}Sounds/_SharedData/Configs/Sound/Tutorial/Sound_Tutorial_VO_Direct_Normal.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 12306
+       port 65
+      }
+     }
+    }
+   }
+   outState 7179
+   outStatePort 19463
+  }
+ }
+ mixers {
+  MixerClass {
+   id 7179
+   name "Mixer"
+   version 4
+   tl 633.612 658.065
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 19463
+     links {
+      ConnectionClass connection {
+       id 15369
+       port 65
+      }
+      ConnectionClass connection {
+       id 11273
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 163847
+     links {
+      ConnectionClass connection {
+       id 9245
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 197639
+     links {
+      ConnectionClass connection {
+       id 8221
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    8519936 0
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "WPN_TravelingProjectile" "Dialog_Delay_Exterior" "SFX_Reverb_InCabin"
+   }
+  }
+ }
+ shaders {
+  ShaderClass {
+   id 12306
+   name "Shader 1"
+   version 5
+   tl 128.079 416.6
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 1052
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 4115
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 5141
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 14340
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    7 0
+   }
+  }
+  ShaderClass {
+   id 13330
+   name "Shader 2"
+   version 5
+   tl 128.079 628.873
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 1052
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 4115
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 5141
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 10244
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    7 0
+   }
+  }
+ }
+ amplitudes {
+  AmplitudeClass : "{2D5607FF1ED3F5D3}Sounds/_SharedData/Configs/Amplitude/_SharedData/Amplitude_-35LUFS_to_-30LUFS.conf" {
+   id 4115
+   version 5
+   tl -343.903 536.857
+   ctl 0 -21
+   parent "{2D5607FF1ED3F5D3}Sounds/_SharedData/Configs/Amplitude/_SharedData/Amplitude_-35LUFS_to_-30LUFS.conf"
+  }
+ }
+ frequency {
+  FrequencyClass : "{85F92D98658CB0F5}Sounds/_SharedData/Configs/Frequency/Character/Frequency_Character_Voice.conf" {
+   id 5141
+   version 5
+   tl -344.482 626.567
+   parent "{85F92D98658CB0F5}Sounds/_SharedData/Configs/Frequency/Character/Frequency_Character_Voice.conf"
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 2061
+       port 5
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 3085
+       port 36
+      }
+     }
+    }
+   }
+   pi {
+    20 0
+   }
+   pu {
+    20 0
+   }
+   directivityFactor 0.75
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 10244
+   name "2"
+   version 7
+   tl -86.19 627.6
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{DCDC81C6C35A25F3}Sounds/Samples/OFFICER/SOUND_OFFICER_INTRO_2.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 14340
+   name "1"
+   version 7
+   tl -83.19 412.6
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{45C2385FDEBD1463}Sounds/Samples/OFFICER/SOUND_OFFICER_INTRO_1.wav"
+    }
+   }
+  }
+ }
+ spatialities {
+  SpatialityClass {
+   id 1052
+   name "Spatiality 3D"
+   version 5
+   tl -343.903 440.857
+   pi {
+    1 0
+   }
+   spatialFactor 1
+  }
+ }
+ auxOuts {
+  AuxOutClass {
+   id 8221
+   name "AuxOut Reverb EXT"
+   version 5
+   tl 633.612 546.065
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 15369
+       port 5
+      }
+      ConnectionClass connection {
+       id 11273
+       port 5
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 6157
+       port 105
+      }
+     }
+    }
+   }
+   pi {
+    3 0
+   }
+   pu {
+    2 0
+   }
+   OSPort 197639
+  }
+  AuxOutClass {
+   id 9245
+   name "AuxOut Reverb INT"
+   version 5
+   tl 633.612 418.065
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 15369
+       port 5
+      }
+      ConnectionClass connection {
+       id 11273
+       port 5
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 6157
+       port 34
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 6157
+       port 39
+      }
+     }
+    }
+   }
+   pi {
+    7 0
+   }
+   pu {
+    6 0
+   }
+   OSPort 163847
+  }
+ }
+ version 1
+}

@@ -10,6 +10,13 @@ GenericEntity : "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_
     }
    }
   }
+  ActionsManagerComponent "{5476B36C403D4CC0}" {
+   additionalActions {
+    RKN_TakePrefabAction "{658451FF1232B575}" {
+     m_sPrefabName "{F7807293E94D3C88}Prefabs/Weapons/Ammo/Ammo_Shell_81mm_Smoke_M819.et"
+    }
+   }
+  }
  }
  coords 8633.036 289.651 4297.059
  angleY 86.18
