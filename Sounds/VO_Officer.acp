@@ -304,6 +304,7 @@ AudioClass {
    name "2"
    version 7
    tl -86.19 627.6
+   Volume 10
    Samples {
     AudioBankSampleClass Sample {
      Filename "{DCDC81C6C35A25F3}Sounds/Samples/OFFICER/SOUND_OFFICER_INTRO_2.wav"
@@ -315,6 +316,7 @@ AudioClass {
    name "1"
    version 7
    tl -83.19 412.6
+   Volume 10
    Samples {
     AudioBankSampleClass Sample {
      Filename "{45C2385FDEBD1463}Sounds/Samples/OFFICER/SOUND_OFFICER_INTRO_1.wav"

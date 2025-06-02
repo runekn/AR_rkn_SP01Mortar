@@ -476,6 +476,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
    GenericEntity : "{028D9156F90205DE}Prefabs/Props/Military/Camps/ConstructionMaterialPacked_WoodPlanks_01_US.et" {
     coords -13.154 0.363 5.859
    }
+   GenericEntity : "{0958E6B949501D00}Prefabs/Props/Military/Generators/GeneratorPortable_US_01.et" {
+    coords 0.91 0.054 -10.288
+    angleY -113.049
+   }
    $grp GenericEntity : "{0B49B43A41505E92}Prefabs/Structures/Military/CamoNets/US/CamoNet_Folded_US.et" {
     {
      coords -12.736 0.292 4.94
@@ -919,8 +923,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          m_iDelayInSeconds 4
          m_aActions {
           SCR_ScenarioFrameworkActionShowHint "{657EF7DEFD57B2D7}" {
-           m_sTitle "Call for fire"
-           m_sText "Call for fire is a protocol"
+           m_sTitle "Call For Fire"
+           m_sText "When requested a firemission, the requester will first provide the target location. This can be in the form of grid coordinates, polar (bearing from requester position), or shift from known point. Another piece of info is whether the requester want you to strike the target with effect (5 shells) right away, called \"Fire for effect\", or act as observer and guide you unto target with one shell at a time. This is called \"Adjust fire\". Once a shell has found the target, the observer will call \"Fire for effect\", after which 5 shells are expected with no further adjustments. In case the initial target location info did not yield the position of the observer, and adjustments are called in a polar manner, then the adjustments will be preceded by the bearing from observer to target."
+           m_iTimeout 60
           }
          }
         }
