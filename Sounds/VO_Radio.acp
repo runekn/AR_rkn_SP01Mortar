@@ -2266,16 +2266,20 @@ AudioClass {
      Index 1
     }
     AudioBankSampleClass Sample {
-     Filename "{0C1C63A03373EBF8}Sounds/Samples/AR_100M.wav"
+     Filename "{A9B86F56C898DA94}Sounds/Samples/AR_50M.wav"
      Index 2
     }
     AudioBankSampleClass Sample {
-     Filename "{BECB214B6CD1D860}Sounds/Samples/AR_200M.wav"
+     Filename "{0C1C63A03373EBF8}Sounds/Samples/AR_100M.wav"
      Index 3
     }
     AudioBankSampleClass Sample {
-     Filename "{D0861F1259B036E8}Sounds/Samples/AR_300M.wav"
+     Filename "{BECB214B6CD1D860}Sounds/Samples/AR_200M.wav"
      Index 4
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D0861F1259B036E8}Sounds/Samples/AR_300M.wav"
+     Index 5
     }
    }
   }
@@ -2399,16 +2403,20 @@ AudioClass {
      Index 1
     }
     AudioBankSampleClass Sample {
-     Filename "{0C1C63A03373EBF8}Sounds/Samples/AR_100M.wav"
+     Filename "{A9B86F56C898DA94}Sounds/Samples/AR_50M.wav"
      Index 2
     }
     AudioBankSampleClass Sample {
-     Filename "{BECB214B6CD1D860}Sounds/Samples/AR_200M.wav"
+     Filename "{0C1C63A03373EBF8}Sounds/Samples/AR_100M.wav"
      Index 3
     }
     AudioBankSampleClass Sample {
-     Filename "{D0861F1259B036E8}Sounds/Samples/AR_300M.wav"
+     Filename "{BECB214B6CD1D860}Sounds/Samples/AR_200M.wav"
      Index 4
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D0861F1259B036E8}Sounds/Samples/AR_300M.wav"
+     Index 5
     }
    }
   }

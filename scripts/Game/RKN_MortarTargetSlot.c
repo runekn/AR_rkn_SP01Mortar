@@ -241,10 +241,14 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	private string GetDistanceIndex(float d, out int index)
 	{
 		string subtitles = "";
-		for (int i = m_sAdjustSounds.m_aDistances.Count() - 1; i >= 0; i--)
+		if (d <= (m_iTargetRadius * 0.8))
+		{
+			return subtitles;
+		}
+		for (int i = 0; i < m_sAdjustSounds.m_aDistances.Count(); i++)
 		{
 			RKN_MortarTargetDistanceConfig config = m_sAdjustSounds.m_aDistances[i];
-			if (d > config.m_iDistance)
+			if (d < (config.m_iDistance * 1.1) || i == (m_sAdjustSounds.m_aDistances.Count() - 1))
 			{
 				if (config.m_sSubtitles && !config.m_sSubtitles.IsEmpty())
 					subtitles = config.m_sSubtitles;
