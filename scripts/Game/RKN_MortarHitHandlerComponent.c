@@ -13,6 +13,9 @@ class RKN_MortarHitHandlerComponent : ScriptComponent
 	//------------------------------------------------------------------------------------------------
 	override void OnDelete(IEntity owner)
 	{
+		if (!Replication.IsServer())
+			return;
+		
 		Print("Origin: " + m_vOrigin, LogLevel.WARNING);
 		if (!m_vOrigin)
 			return;

@@ -30,7 +30,7 @@ class RKN_Connect4BoardComponent : ScriptComponent
 	
 	void PlaceStone(int x, int player)
 	{
-		PlaceStoneImpl(x, player);
+		AskPlaceStone(x, player);
 		m_OnPlayerMove.Invoke();
 	}
 	
@@ -49,7 +49,13 @@ class RKN_Connect4BoardComponent : ScriptComponent
 		m_OnReset.Invoke();
 	}
 	
-	void PlaceStoneImpl(int x, int player)
+	void AskPlaceStone(int x, int player)
+	{
+		Rpc(Rpc_PlaceStone, x, player);
+	}
+	
+	[RplRpc(channel: RplChannel.Reliable, rcver: RplRcver.Server)]
+	void Rpc_PlaceStone(int x, int player)
 	{
 		if (!CanPlace(x))
 			return;

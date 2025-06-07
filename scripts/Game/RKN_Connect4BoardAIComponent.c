@@ -24,8 +24,6 @@ class RKN_Connect4BoardAIComponent : ScriptComponent
 	override protected void OnPostInit(IEntity owner)
 	{
 		super.OnPostInit(owner);
-		if (GetGame().GetPlayerManager().GetPlayerCount() > 1)
-			return;
 		
 		m_Board = RKN_Connect4BoardComponent.Cast(owner.FindComponent(RKN_Connect4BoardComponent));
 		m_Board.m_OnPlayerMove.Insert(StartSpiritTimer);
@@ -48,6 +46,9 @@ class RKN_Connect4BoardAIComponent : ScriptComponent
 	
 	void StartSpiritTimer()
 	{
+		if (GetGame().GetPlayerManager().GetPlayerCount() > 1)
+			return;
+		
 		if (m_Board.m_iWinner != 0 || m_bOpponentCheating)
 			return;
 		
@@ -78,7 +79,7 @@ class RKN_Connect4BoardAIComponent : ScriptComponent
 		m_bMyTurn = false;
 		int x = 0;
 		AlphaBetaMinMax(m_Board.m_aState, m_iMinMaxDepth, -float.INFINITY, float.INFINITY, m_iAIPlayer, x);
-		m_Board.PlaceStoneImpl(x, m_iAIPlayer);
+		m_Board.AskPlaceStone(x, m_iAIPlayer);
 	}
 	
 	private float AlphaBetaMinMax(int state[7][6], int depth, float alpha, float beta, int player, out int bestColumn)

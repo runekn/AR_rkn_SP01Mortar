@@ -1,0 +1,21 @@
+Vehicle : "{47D94E1193A88497}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport.et" {
+ ID "44EC665ABD2FF04B"
+ components {
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   additionalActions {
+    RKN_TakePrefabAction "{658451FDC9448274}" {
+     ParentContextList {
+      "storage"
+     }
+     UIInfo UIInfo "{658451FDC5FA58A3}" {
+      Name "Take HE Crate"
+     }
+     Duration 1
+     m_sPrefabName "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et"
+    }
+   }
+  }
+ }
+ coords 1.157 0.231 -1.123
+ angleY 135.791
+}

@@ -432,6 +432,11 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      RKN_ActionBasedOnConditionLoop "{6570ED3B3F7D425A}" {
       m_iDelayInSeconds 10
       m_aActivationConditions {
+       RKN_EntityExistanceCondition "{658E8C6DD6999315}" {
+        m_Entity SCR_ScenarioFrameworkGetEntityByName "{658E8C6DCF788087}" {
+         m_sEntityName "BaseMortar"
+        }
+       }
        SCR_ScenarioFrameworEntitykDamageStateCondition "{6570ED3B3A07F973}" {
         m_Getter SCR_ScenarioFrameworkGetEntityByName "{6570ED3B5CF10BEB}" {
          m_sEntityName "BaseMortar"
@@ -439,6 +444,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         m_eDamageState DESTROYED
        }
       }
+      m_eActivationConditionLogic OR
       m_aActions {
        SCR_ScenarioFrameworkActionWaitAndExecute "{6570ED3B5B9CFB24}" {
         m_iDelayInSeconds 10
@@ -1025,8 +1031,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask1 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Charlie 1-1 Fire Mission"
-            m_sTaskDescription "Alpha 1-1 is taking cover in a large building near Pennants Pass. They request an adjust fire mission 100M to their 310 bearing."
+            m_sTaskTitle "Charlie 2-2 Fire Mission"
+            m_sTaskDescription "Charlie 2-2 is taking cover in a large building near Pennants Pass. They request an adjust fire mission 100M to their 310 bearing."
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{65750C9B8D5FC1DE}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1105,8 +1111,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask6 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Charlie 1-1 Fire Mission"
-            m_sTaskDescription "Alpha 1-1 is taking cover in a building complex called Camurac. They request an adjust fire mission 200M to their 065 bearing."
+            m_sTaskTitle "Charlie 2-2 Fire Mission"
+            m_sTaskDescription "Alpha 2-2 is taking cover in a building complex called Camurac. They request an adjust fire mission 200M to their 065 bearing."
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{65750C9BB7C63BF4}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1185,8 +1191,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask3 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Charlie 1-2 Fire Mission"
-            m_sTaskDescription "Charlie 1-2 is requesting an adjust fire mission on grid 071 028"
+            m_sTaskTitle "Charlie 1 Fire Mission"
+            m_sTaskDescription "Charlie 1 is requesting an adjust fire mission on grid 071 028"
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{65750C9BAC7B7406}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1303,7 +1309,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
             m_sTaskTitle "Alpha actual FIre mission"
-            m_sTaskDescription "072 039"
+            m_sTaskDescription "Alpha actual is requesting fire for effect, 300 meters south and 250 meters east of center of Camp Pertrude."
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{6576507504941F39}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1383,7 +1389,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
             m_sTaskTitle "Alpha actual FIre mission"
-            m_sTaskDescription "073 044"
+            m_sTaskDescription "Alpha actual is requesting adjust fire mission, 200 meters north and 200 meters east of center of Camp Pertrude."
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{6576507516C12E7E}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1458,7 +1464,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
             m_sTaskTitle "Alpha actual FIre mission"
-            m_sTaskDescription "075 039"
+            m_sTaskDescription "Alpha actual is requesting fire for effect, 300 meters south of center of Camp Pertrude."
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{657650751EC6D6E7}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1579,7 +1585,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
             m_sTaskTitle "Bravo 2 Fire mission"
-            m_sTaskDescription "109 028"
+            m_sTaskDescription "Bravo 2 requests adjust fire mission on a building north-west of Oar ridge"
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{657650752CD51F24}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1658,8 +1664,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask10 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "India 1-2 Fire mission"
-            m_sTaskDescription "091 016"
+            m_sTaskTitle "India 3 Fire mission"
+            m_sTaskDescription "Requests adjust fire mission at grid 092 015"
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{657650753C742654}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1734,7 +1740,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
             m_sTaskTitle "Bravo 2 Fire mission"
-            m_sTaskDescription "099 025"
+            m_sTaskDescription "Bravo 2 requests fire for effect on the road near Cheval Gin Lodge"
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{65765075343C0A2C}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
@@ -1763,7 +1769,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
     m_aActivationActions {
      SCR_ScenarioFrameworkActionAddItemToInventory "{658451F2170D41CE}" {
       m_Getter SCR_ScenarioFrameworkGetEntityByName "{65646870E9AADBF7}" {
-       m_sEntityName "M151A1"
+       m_sEntityName "RKN_M151A1"
       }
       m_aPrefabFilter {
        SCR_ScenarioFrameworkPrefabFilterCountNoInheritance "{65646870E8398440}" {
@@ -1786,25 +1792,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      }
      coords 104.67 23.091 -156.183
      {
-      Vehicle M151A1 : "{47D94E1193A88497}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport.et" {
-       components {
-        ActionsManagerComponent "{C97BE5489221AE18}" {
-         additionalActions {
-          RKN_TakePrefabAction "{658451FDC9448274}" {
-           ParentContextList {
-            "storage"
-           }
-           UIInfo UIInfo "{658451FDC5FA58A3}" {
-            Name "Take HE Crate"
-           }
-           Duration 1
-           m_sPrefabName "{645A1805E4C3BE31}Prefabs/Weapons/Ammo/RKN_Filled_AmmoBox_81mm_HE.et"
-          }
-         }
-        }
-       }
-       coords 1.157 0.231 -1.123
-       angleY 135.791
+      Vehicle RKN_M151A1 : "{57818742F6CC806D}Prefabs/RKN_M151A1.et" {
+       coords 1.144 0.28 -1.711
+       angleY 129.401
       }
       GenericEntity SlotAI1 : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
        components {
@@ -1877,7 +1867,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         components {
          SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
           m_Waypoint SCR_ScenarioFrameworkWaypointGetIn "{6564687518E11246}" {
-           m_sEntityName "M151A1"
+           m_sEntityName "RKN_M151A1"
            m_bGunnerAllowed 0
            m_bCargoAllowed 0
           }
@@ -2103,16 +2093,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        coords -0.259 -0.192 -1.019
        {
         $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
-         GetIn {
-          components {
-           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
-            m_Waypoint SCR_ScenarioFrameworkWaypointGetIn "{6566600A357A3696}" {
-             m_sEntityName "EnemyMortar"
-            }
-           }
-          }
-          coords 88.117 -12.295 81.761
-         }
          TargetEnemy2 {
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
@@ -2153,6 +2133,26 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           }
           coords 767.778 -57.7 895.578
          }
+         TargetEnemy6 {
+          components {
+           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+            m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
+             m_iTargetShotCount 2
+            }
+           }
+          }
+          coords 791.729 -57.933 891.962
+         }
+         GetIn {
+          components {
+           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+            m_Waypoint SCR_ScenarioFrameworkWaypointGetIn "{6566600A357A3696}" {
+             m_sEntityName "EnemyMortar"
+            }
+           }
+          }
+          coords 88.117 -12.295 81.761
+         }
          TargetEnemy1 {
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
@@ -2164,22 +2164,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
           }
           coords 759.807 -52.001 924.98
          }
-         TargetEnemy6 {
-          components {
-           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
-            m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_iTargetShotCount 2
-            }
-           }
-          }
-          coords 791.729 -57.933 891.962
-         }
          TargetEnemy7 {
           components {
            SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
-            m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{6566600A4D914D76}" {
-             m_fCompletionRadius 5
-             m_iTargetShotCount 5
+            m_Waypoint SCR_ScenarioFrameworkWaypointArtillerySupport "{658E8C6B96F5947B}" {
             }
            }
           }

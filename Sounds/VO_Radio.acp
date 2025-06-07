@@ -2149,7 +2149,6 @@ AudioClass {
    tl -2685.778 2507.803
    curve Logarithm
    innerRange 5
-   outerRange 20
   }
  }
  frequency {
