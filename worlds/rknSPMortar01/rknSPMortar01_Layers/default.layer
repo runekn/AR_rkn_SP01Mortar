@@ -482,6 +482,28 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
    GenericEntity : "{028D9156F90205DE}Prefabs/Props/Military/Camps/ConstructionMaterialPacked_WoodPlanks_01_US.et" {
     coords -13.154 0.363 5.859
    }
+   GenericEntity BaseTrigger : "{032C15BBEBE9E1E9}Prefabs/Systems/ScenarioFramework/Components/SlotTrigger.et" {
+    components {
+     SCR_ScenarioFrameworkSlotTrigger "{6118D659EDB7084E}" {
+      m_bShowDebugShapesDuringRuntime 1
+      m_aPlugins {
+       SCR_ScenarioFrameworkPluginTrigger "{6118D659EDB7085B}" {
+        m_bDebug 1
+        m_fAreaRadius 50
+        m_eActivationPresence PLAYER
+        m_aEntityLeftActions {
+         SCR_ScenarioFrameworkActionEndMission "{658E8C695D4FB1AF}" {
+          m_iMaxNumberOfActivations 1
+          m_bOverrideGameOverType 1
+          m_eOverriddenGameOverType LOOSE
+         }
+        }
+       }
+      }
+     }
+    }
+    coords 0 0 0
+   }
    GenericEntity : "{0958E6B949501D00}Prefabs/Props/Military/Generators/GeneratorPortable_US_01.et" {
     coords 0.91 0.054 -10.288
     angleY -113.049
