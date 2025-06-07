@@ -485,11 +485,10 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
    GenericEntity BaseTrigger : "{032C15BBEBE9E1E9}Prefabs/Systems/ScenarioFramework/Components/SlotTrigger.et" {
     components {
      SCR_ScenarioFrameworkSlotTrigger "{6118D659EDB7084E}" {
-      m_bShowDebugShapesDuringRuntime 1
       m_aPlugins {
        SCR_ScenarioFrameworkPluginTrigger "{6118D659EDB7085B}" {
         m_bDebug 1
-        m_fAreaRadius 50
+        m_fAreaRadius 75
         m_eActivationPresence PLAYER
         m_aEntityLeftActions {
          SCR_ScenarioFrameworkActionEndMission "{658E8C695D4FB1AF}" {
