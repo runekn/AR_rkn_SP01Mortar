@@ -397,7 +397,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          m_eActivationType ON_TRIGGER_ACTIVATION
          m_aActivationActions {
           SCR_ScenarioFrameworkActionWaitAndExecute "{6572924285AC667D}" {
-           m_iDelayInSeconds 3
+           m_iDelayInSeconds 5
            m_aActions {
             SCR_ScenarioFrameworkActionSpawnObjects "{65729242CDF90E3C}" {
              m_aNameOfObjectsToSpawnOnActivation {
@@ -877,20 +877,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         angleY -135
        }
       }
-     }
-     GenericEntity SlotMarker1 : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
-      components {
-       SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
-        m_MapMarkerType SCR_ScenarioFrameworkMarkerMilitary "{6556621CF1899D34}" {
-         m_sMapMarkerText "OP Juvilent"
-         m_eMapMarkerDimension INSTALLATION
-         m_eMapMarkerType1Modifier MORTAR
-         m_eMapMarkerType2Modifier MORTAR
-        }
-       }
-      }
-      coords -2.69 0.065 -7.355
-      angleY -169.156
      }
     }
    }
@@ -2321,6 +2307,75 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
      }
     }
     coords 0 0 0
+   }
+  }
+ }
+ Markers_area {
+  coords 8489.886 272.561 4263.546
+  {
+   $grp GenericEntity : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
+    BaseMarker {
+     components {
+      SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+       m_MapMarkerType SCR_ScenarioFrameworkMarkerMilitary "{6556621CF1899D34}" {
+        m_sMapMarkerText "OP Juvilent"
+        m_eMapMarkerDimension INSTALLATION
+        m_eMapMarkerType1Modifier MORTAR
+        m_eMapMarkerType2Modifier MORTAR
+       }
+      }
+     }
+     coords 145.468 17.1 35.118
+     angleY -169.156
+    }
+    CampMarker {
+     components {
+      SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+       m_MapMarkerType SCR_ScenarioFrameworkMarkerMilitary "{6590605F2DC1C48C}" {
+        m_sMapMarkerText "Camp Pertrude"
+        m_eMapMarkerDimension INSTALLATION
+        m_eMapMarkerType2Modifier COMBINED
+       }
+      }
+     }
+     coords -993.967 -107.054 14.066
+    }
+    Outpost1Marker {
+     components {
+      SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+       m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{6590605CE2DC6EB3}" {
+        m_sMapMarkerText "Charlie"
+        m_eMapMarkerIcon CROSS2
+        m_eMapMarkerColor GREEN
+       }
+      }
+     }
+     coords -1411.189 -115.748 -2188.78
+    }
+    Outpost2Marker {
+     components {
+      SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+       m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{6590605FE6833861}" {
+        m_sMapMarkerText "Bravo"
+        m_eMapMarkerIcon CROSS2
+        m_eMapMarkerColor ORANGE
+       }
+      }
+     }
+     coords 3133.643 -264.632 -2110.973
+    }
+    Outpost3Marker {
+     components {
+      SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+       m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{6590605F0B82588A}" {
+        m_sMapMarkerText "India"
+        m_eMapMarkerIcon CROSS2
+        m_eMapMarkerColor MAGENTA
+       }
+      }
+     }
+     coords 1056.692 -241.114 -2578.428
+    }
    }
   }
  }
