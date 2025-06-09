@@ -308,11 +308,6 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
               SCR_ScenarioFrameworkActionWaitAndExecute "{65790BFDC4E8D091}" {
                m_iDelayInSeconds 5
                m_aActions {
-                SCR_ScenarioFrameworkActionChangeTaskState "{65790BFDFE7125BD}" {
-                 m_Getter SCR_ScenarioFrameworkGetTask "{6564682FD958B403}" {
-                  m_sLayerTaskName "AmbushTask_layer"
-                 }
-                }
                 RKN_VoiceOverPlayFiremissionSequence "{65790BFD2F93B408}" {
                  m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
                  m_sSequenceName "AMBUSH_SUCCESS"
@@ -321,9 +316,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
                  m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65790BFD28D4875B}" {
                  }
                  m_aActions {
-                  SCR_ScenarioFrameworkActionSpawnObjects "{65790BFD229BD3EF}" {
-                   m_aNameOfObjectsToSpawnOnActivation {
-                    "FinishLogic_layer"
+                  SCR_ScenarioFrameworkActionChangeTaskState "{65925598DC58A23A}" {
+                   m_Getter SCR_ScenarioFrameworkGetTask "{6564682FD958B403}" {
+                    m_sLayerTaskName "AmbushTask_layer"
                    }
                   }
                  }
@@ -406,10 +401,133 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             }
            }
           }
+          SCR_ScenarioFrameworkActionSpawnObjects "{6592558F60FDED7F}" {
+           m_aNameOfObjectsToSpawnOnActivation {
+            "AmbushRescue_layer"
+           }
+          }
          }
         }
        }
        coords 0 0 0
+      }
+      AmbushRescue_layer {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_eActivationType ON_TRIGGER_ACTIVATION
+        }
+       }
+       coords 0 0 0
+       {
+        Vehicle AmbushAmbulance : "{00C9BBE426F7D459}Prefabs/Vehicles/Wheeled/M998/M997_maxi_ambulance.et" {
+         coords -407.813 88.781 750.021
+         angleY 136.464
+        }
+        Vehicle AmbushAmbulanceEscort : "{3EA6F47D95867114}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB.et" {
+         coords -377.706 79.049 674.341
+         angleY 167.315
+        }
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         AmbushAmbulanceDriver {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_aActivationActions {
+             SCR_ScenarioFrameworkActionAI "{6592558C9CF2A47B}" {
+              m_aAIActions {
+               SCR_ScenarioFrameworkAIActionDisableLOD "{6592558C95806128}" {
+               }
+              }
+             }
+            }
+            m_sObjectToSpawn "{C9E4FEAF5AAC8D8C}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Medic.et"
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6592558D3AB010F6}" {
+             m_aLayerName {
+              "AmbushRescueWaypoint2_layer"
+             }
+            }
+           }
+          }
+          coords -403.738 88.793 751.838
+          angleY 110.026
+         }
+         AmbushAmbulanceEscortDriver {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_aActivationActions {
+             SCR_ScenarioFrameworkActionAI "{6592558C92A7FF54}" {
+              m_aAIActions {
+               SCR_ScenarioFrameworkAIActionDisableLOD "{6592558C8CF20739}" {
+               }
+              }
+             }
+            }
+            m_sObjectToSpawn "{3BF36BDEEB33AEC9}Prefabs/Groups/BLUFOR/Group_US_SentryTeam.et"
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6592558D019EC0EC}" {
+             m_aLayerName {
+              "AmbushRescueWaypoint1_layer"
+             }
+            }
+           }
+          }
+          coords -373.555 78.645 672.407
+          angleY -151.613
+         }
+        }
+       }
+      }
+      AmbushRescueWaypoint1_layer {
+       coords 0 0 0
+       {
+        $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+         SlotWaypoint5 {
+          components {
+           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+            m_Waypoint SCR_ScenarioFrameworkWaypointGetIn "{6592558DD2A8704C}" {
+             m_sEntityName "AmbushAmbulanceEscort"
+            }
+           }
+          }
+          coords -376.263 78.984 674.333
+          angleY 136.705
+         }
+         SlotWaypoint8 {
+          components {
+           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+            m_Waypoint SCR_ScenarioFrameworkWaypointMove "{6592558D50956BE7}" {
+            }
+           }
+          }
+          coords 3.824 1.68 23.009
+         }
+        }
+       }
+      }
+      AmbushRescueWaypoint2_layer {
+       coords 0 0 0
+       {
+        $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+         SlotWaypoint6 {
+          components {
+           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+            m_Waypoint SCR_ScenarioFrameworkWaypointGetIn "{6592558D1E22CBF7}" {
+             m_sEntityName "AmbushAmbulance"
+            }
+           }
+          }
+          coords -407.784 88.942 752.042
+          angleY 110.026
+         }
+         SlotWaypoint7 {
+          components {
+           SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+            m_Waypoint SCR_ScenarioFrameworkWaypointMove "{6592558F9800CDBB}" {
+            }
+           }
+          }
+          coords 3.393 2.381 44.392
+         }
+        }
+       }
       }
      }
     }
@@ -494,7 +612,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SCR_ScenarioFrameworkActionEndMission "{658E8C695D4FB1AF}" {
           m_iMaxNumberOfActivations 1
           m_bOverrideGameOverType 1
-          m_eOverriddenGameOverType LOOSE
+          m_eOverriddenGameOverType END1
          }
         }
        }
@@ -562,7 +680,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          "default"
         }
         UIInfo UIInfo "{656D252991594C58}" {
-         Name "asdasd"
+         Name "Acknowledge"
         }
         Duration 3
         m_aActions {
@@ -573,6 +691,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_aNameOfObjectsToSpawnOnActivation {
              "EnemyMortarLayer" "EnemyMortarExplosionLayer"
             }
+           }
+           SCR_ScenarioFrameworkActionPlayMusic "{6592558EDFB3F642}" {
+            m_sMusic "SOUND_FREE_ROAM"
            }
           }
          }
@@ -979,61 +1100,91 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        FireSupport1a_layer {
         coords 0 0 0
         {
-         GenericEntity RKN_MortarTargetSlot1 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
-          components {
-           RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-            m_iTargetRadius 50
-            m_iTargetIgnoreRadius 500
-            m_iRequiredSplashesOnTarget 3
-            m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 500
-            m_iTimeoutInSecondsMax 600
-            m_aActionsOnCompletion {
-             RKN_VoiceOverPlayFiremissionSequence "{65790BF93574F359}" {
-              m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
-              m_sSequenceName "FIRESUPPORT_1A_SUCCESS"
-              m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
-              }
-              m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
-              }
-              m_bPlayImmediately 0
-              m_aActions {
-               SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
-                m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
-                 m_sLayerTaskName "FireSupport1_layer"
+         $grp GenericEntity : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
+          RKN_MortarTargetSlot1 {
+           components {
+            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+             m_iTargetRadius 50
+             m_iTargetIgnoreRadius 500
+             m_iRequiredSplashesOnTarget 3
+             m_iRequiredSplashes 5
+             m_iTimeoutInSeconds 300
+             m_iTimeoutInSecondsMax 500
+             m_aActionsOnCompletion {
+              RKN_VoiceOverPlayFiremissionSequence "{65790BF93574F359}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "FIRESUPPORT_1A_SUCCESS"
+               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
+               }
+               m_bPlayImmediately 0
+               m_aActions {
+                SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
+                 m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
+                  m_sLayerTaskName "FireSupport1_layer"
+                 }
                 }
                }
               }
              }
-            }
-            m_aActionsOnFailure {
-             RKN_VoiceOverPlayFiremissionSequence "{65784E367E8A5095}" {
-              m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
-              m_sSequenceName "FIRESUPPORT_1A_TIMEOUT"
-              m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
-              }
-              m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
-              }
-              m_bPlayImmediately 0
-              m_aActions {
-               SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
-                m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
-                 m_sLayerTaskName "FireSupport1_layer"
+             m_aActionsOnFailure {
+              RKN_VoiceOverPlayFiremissionSequence "{65784E367E8A5095}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "FIRESUPPORT_1A_TIMEOUT"
+               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
+               }
+               m_bPlayImmediately 0
+               m_aActions {
+                SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
+                 m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
+                  m_sLayerTaskName "FireSupport1_layer"
+                 }
+                 m_eTaskState CANCELLED
                 }
-                m_eTaskState CANCELLED
                }
               }
              }
+             m_oObserverPosition PointInfo "{657A735D1601B9D9}" {
+              Offset 140.1387 -11.9273 -99.0835
+             }
+             m_SoundActorGetter RKN_GetRadioEntity "{65750C8C60600F85}" {
+             }
+             m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
             }
-            m_oObserverPosition PointInfo "{657A735D1601B9D9}" {
-             Offset 140.1387 -11.9273 -99.0835
-            }
-            m_SoundActorGetter RKN_GetRadioEntity "{65750C8C60600F85}" {
-            }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
            }
+           coords -544.922 -46.304 -2010.984
           }
-          coords -544.922 -46.304 -2010.984
+          RKN_MortarTargetSlot11 {
+           components {
+            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+             m_iTargetRadius 25
+             m_iTargetIgnoreRadius 25
+             m_aActionsOnCompletion {
+              RKN_VoiceOverPlayFiremissionSequence "{659255934DEF0E01}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "FIRESUPPORT_1A_FF"
+               m_ActorGetter RKN_GetRadioEntity "{659255929FBC30E2}" {
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{659255929E35B0BB}" {
+               }
+               m_aActions {
+                SCR_ScenarioFrameworkActionChangeTaskState "{65925593781AE183}" {
+                 m_Getter SCR_ScenarioFrameworkGetTask "{6592559374427D2F}" {
+                  m_sLayerTaskName "FireSupport1_layer"
+                 }
+                 m_eTaskState CANCELLED
+                }
+               }
+              }
+             }
+             m_bRequestAdjustFire 0
+            }
+           }
+           coords -399.353 -60.885 -2112.149
+          }
          }
          GenericEntity SlotTask1 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
@@ -1059,61 +1210,91 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
        FireSupport1b_layer {
         coords 0 0 0
         {
-         GenericEntity RKN_MortarTargetSlot3 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
-          components {
-           RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-            m_iTargetRadius 40
-            m_iTargetIgnoreRadius 500
-            m_iRequiredSplashesOnTarget 3
-            m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 500
-            m_iTimeoutInSecondsMax 600
-            m_aActionsOnCompletion {
-             RKN_VoiceOverPlayFiremissionSequence "{65790BF9579DCB28}" {
-              m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
-              m_sSequenceName "FIRESUPPORT_1B_SUCCESS"
-              m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
-              }
-              m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
-              }
-              m_bPlayImmediately 0
-              m_aActions {
-               SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
-                m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
-                 m_sLayerTaskName "FireSupport1_layer"
+         $grp GenericEntity : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
+          RKN_MortarTargetSlot3 {
+           components {
+            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+             m_iTargetRadius 40
+             m_iTargetIgnoreRadius 500
+             m_iRequiredSplashesOnTarget 3
+             m_iRequiredSplashes 5
+             m_iTimeoutInSeconds 300
+             m_iTimeoutInSecondsMax 500
+             m_aActionsOnCompletion {
+              RKN_VoiceOverPlayFiremissionSequence "{65790BF9579DCB28}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "FIRESUPPORT_1B_SUCCESS"
+               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
+               }
+               m_bPlayImmediately 0
+               m_aActions {
+                SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
+                 m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
+                  m_sLayerTaskName "FireSupport1_layer"
+                 }
                 }
                }
               }
              }
-            }
-            m_aActionsOnFailure {
-             RKN_VoiceOverPlayFiremissionSequence "{65784E3990DCB49C}" {
-              m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
-              m_sSequenceName "FIRESUPPORT_1B_TIMEOUT"
-              m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
-              }
-              m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
-              }
-              m_bPlayImmediately 0
-              m_aActions {
-               SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
-                m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
-                 m_sLayerTaskName "FireSupport1_layer"
+             m_aActionsOnFailure {
+              RKN_VoiceOverPlayFiremissionSequence "{65784E3990DCB49C}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "FIRESUPPORT_1B_TIMEOUT"
+               m_ActorGetter RKN_GetRadioEntity "{65784E35754B35DD}" {
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65784E3577FB27CF}" {
+               }
+               m_bPlayImmediately 0
+               m_aActions {
+                SCR_ScenarioFrameworkActionChangeTaskState "{65784E35731A2291}" {
+                 m_Getter SCR_ScenarioFrameworkGetTask "{65784E3567C8337E}" {
+                  m_sLayerTaskName "FireSupport1_layer"
+                 }
+                 m_eTaskState CANCELLED
                 }
-                m_eTaskState CANCELLED
                }
               }
              }
+             m_oObserverPosition PointInfo "{657A735D05C3E80D}" {
+              Offset -233.85791 -36.1968 -91.57639
+             }
+             m_SoundActorGetter RKN_GetRadioEntity "{65750C8D9CA6C280}" {
+             }
+             m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
             }
-            m_oObserverPosition PointInfo "{657A735D05C3E80D}" {
-             Offset -233.85791 -36.1968 -91.57639
-            }
-            m_SoundActorGetter RKN_GetRadioEntity "{65750C8D9CA6C280}" {
-            }
-            m_sAdjustSoundConfig "{DCB24F7587E03517}Configs/VoiceData/FireMission1A.conf"
            }
+           coords -1827.822 -248.939 -1098.487
           }
-          coords -1827.822 -248.939 -1098.487
+          RKN_MortarTargetSlot13 {
+           components {
+            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+             m_iTargetRadius 50
+             m_iTargetIgnoreRadius 50
+             m_aActionsOnCompletion {
+              RKN_VoiceOverPlayFiremissionSequence "{659255934DEF0E01}" {
+               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+               m_sSequenceName "FIRESUPPORT_1B_FF"
+               m_ActorGetter RKN_GetRadioEntity "{659255929FBC30E2}" {
+               }
+               m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{659255929E35B0BB}" {
+               }
+               m_aActions {
+                SCR_ScenarioFrameworkActionChangeTaskState "{65925593781AE183}" {
+                 m_Getter SCR_ScenarioFrameworkGetTask "{6592559374427D2F}" {
+                  m_sLayerTaskName "FireSupport1_layer"
+                 }
+                 m_eTaskState CANCELLED
+                }
+               }
+              }
+             }
+             m_bRequestAdjustFire 0
+            }
+           }
+           coords -2052.196 -284.273 -1185.101
+          }
          }
          GenericEntity SlotTask6 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
@@ -1198,7 +1379,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity SlotTask3 : "{D5F479FD905C73C1}Prefabs/Systems/ScenarioFramework/Components/SlotTask.et" {
           components {
            SCR_ScenarioFrameworkSlotTask "{609CCA8A5D36FACD}" {
-            m_sTaskTitle "Charlie 1 Fire Mission"
+            m_sTaskTitle "Charlie 2 Fire Mission"
             m_sTaskDescription "Charlie 1 is requesting an adjust fire mission on grid 071 028"
             m_aActionsOnCreated {
              RKN_VoiceOverPlayFiremissionSequence "{65750C9BAC7B7406}" {
@@ -1264,7 +1445,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          GenericEntity RKN_MortarTargetSlot5 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
           components {
            RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
-            m_iTargetRadius 40
+            m_iTargetRadius 50
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 3
             m_iRequiredSplashes 5
@@ -1488,6 +1669,33 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          }
         }
        }
+      }
+      GenericEntity RKN_MortarTargetSlot12 : "{C236ADE426F4E2E5}Prefabs/Systems/ScenarioFramework/Components/RKN_MortarTargetSlot.et" {
+       components {
+        RKN_MortarTargetSlot "{655EEA43D0CF9C30}" {
+         m_iTargetIgnoreRadius 100
+         m_aActionsOnCompletion {
+          RKN_VoiceOverPlayFiremissionSequence "{65925592586FD92E}" {
+           m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+           m_sSequenceName "FIRESUPPORT_2_FF"
+           m_ActorGetter RKN_GetRadioEntity "{6592559243DB720F}" {
+           }
+           m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{659255924219B5B1}" {
+           }
+           m_aActions {
+            SCR_ScenarioFrameworkActionChangeTaskState "{659255925603FC25}" {
+             m_Getter SCR_ScenarioFrameworkGetTask "{6592559253B29D35}" {
+              m_sLayerTaskName "FireSupport2_layer"
+             }
+             m_eTaskState CANCELLED
+            }
+           }
+          }
+         }
+         m_bRequestAdjustFire 0
+        }
+       }
+       coords -1145.039 -124.331 -23.204
       }
      }
     }
@@ -1977,9 +2185,14 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
       components {
        SCR_ScenarioFrameworkLayerTask "{5A2283E9F84958A1}" {
         m_aTriggerActionsOnFinish {
-         SCR_ScenarioFrameworkActionSpawnObjects "{6572681954F86C7E}" {
-          m_aNameOfObjectsToSpawnOnActivation {
-           "Ambush_layer"
+         SCR_ScenarioFrameworkActionWaitAndExecute "{659255B754C7D748}" {
+          m_iDelayInSeconds 5
+          m_aActions {
+           SCR_ScenarioFrameworkActionSpawnObjects "{659255B753C866CE}" {
+            m_aNameOfObjectsToSpawnOnActivation {
+             "Ambush_layer"
+            }
+           }
           }
          }
         }
@@ -2227,7 +2440,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
  Ending_area {
   coords 8626.694 289.694 4309.003
   {
-   GenericEntity EndingLogic_layer : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+   GenericEntity Ending_layer : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
     components {
      SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
       m_eActivationType ON_TRIGGER_ACTIVATION

@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{D974746840E1FC9B}Sounds/Samples/FIREMISSION_1C/SOUND_FIREMISSION_1C_TIMEOUT_1.wav"
+ Name "{6F044E78E41C924E}Sounds/Samples/FIREMISSION_1A/SOUND_FIREMISSION_1A_FF_1.wav"
  Configurations {
   WAVResourceClass PC : "{F72B05D02F3F135E}Configs/System/ResourceTypes/PC/Sound.conf" {
   }

@@ -35,8 +35,11 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	[Attribute(defvalue: "1", desc: "What to do once target has been hit required amount of times", UIWidgets.Auto, category: "Mortar target")]
 	ref array<ref SCR_ScenarioFrameworkActionBase> m_aActionsOnCompletion;
 	
-	[Attribute(defvalue: "1", desc: "What to do if target failed to be hit required amount of times", UIWidgets.Auto, category: "Mortar target")]
+	[Attribute(defvalue: "1", desc: "What to do if too many shots missed the target", UIWidgets.Auto, category: "Mortar target")]
 	ref array<ref SCR_ScenarioFrameworkActionBase> m_aActionsOnFailure;
+	
+	[Attribute(defvalue: "1", desc: "What to do in case of timeout", UIWidgets.Auto, category: "Mortar target")]
+	ref array<ref SCR_ScenarioFrameworkActionBase> m_aActionsOnTimeout;
 	
 	[Attribute(defvalue: "true", desc: "Observer will first request one shell that will be corrected unto target, before requesting fire for effect.", category: "Mortar target")]
 	bool m_bRequestAdjustFire;
@@ -78,7 +81,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 			int delay = m_iTimeoutInSeconds;
 			if (m_iTimeoutInSecondsMax > m_iTimeoutInSeconds)
 				delay = Math.RandomIntInclusive(m_iTimeoutInSeconds, m_iTimeoutInSecondsMax);
-			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().CallLater(ExecuteActions, delay * 1000, false);
+			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().CallLater(ExecuteTimeoutActions, delay * 1000, false);
 		}
 		
 		return super.InitOtherThings();
@@ -217,6 +220,16 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 			}
 		}
 		
+	}
+	
+	private void ExecuteTimeoutActions()
+	{		
+		foreach (SCR_ScenarioFrameworkActionBase action : m_aActionsOnTimeout)
+		{
+			action.OnActivate(GetOwner());
+		}
+		
+		Deactivate(GetOwner());
 	}
 	
 	private void ExecuteActions()
