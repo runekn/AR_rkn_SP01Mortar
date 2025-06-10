@@ -2875,7 +2875,7 @@ AudioClass {
      Index 2
     }
     AudioBankSampleClass Sample {
-     Filename "{DBB856969A7E9106}Sounds/Samples/FIREMISSION_2A/SOUND_FIREMISSION_2A_REQUEST_3.wav"
+     Filename "{ACB23E1E6EDC7E76}Sounds/Samples/FIREMISSION_2A/SOUND_FIREMISSION_2A_REQUEST_2.wav"
      Index 3
     }
     AudioBankSampleClass Sample {
@@ -2908,7 +2908,7 @@ AudioClass {
    id 207876
    name "Bank 199"
    version 7
-   tl -1769.643 1977.597
+   tl -1769.643 1976.597
    ins {
     ConnectionsClass connections {
      id 2

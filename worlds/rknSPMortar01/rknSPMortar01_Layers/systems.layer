@@ -83,6 +83,20 @@ SCR_BaseGameMode GameModeSF1 : "{ECEEDB2D3737204B}Prefabs/Systems/ScenarioFramew
   SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
    m_iKillFeedType DISABLED
   }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   components {
+    SCR_RespawnBriefingComponent "{65944AE4F3A5C027}" {
+     m_sJournalConfigPath "{006BEDB4F8A24566}Configs/RKN_Journal_SP01Mortar.conf"
+     m_Info SCR_UIInfo "{65944AE4E235E8C4}" {
+      Name "Test"
+      Description "test"
+     }
+    }
+   }
+   m_SpawnLogic SCR_MenuSpawnLogic "{5D36888CC966608A}" {
+    m_sForcedFaction "US"
+   }
+  }
  }
  coords 8625.646 289.412 4306.905
 }
