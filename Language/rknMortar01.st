@@ -69,13 +69,6 @@ StringTable {
    Author "Rune"
    LastChanged "Rune"
   }
-  CustomStringTableItem "{65946467D874C62D}" {
-   Id "AR-RKN_SP01M-VA_Ending_Good1"
-   Target_en_us "Hammer, HQ."
-   Modified 1704269812
-   Author "Rune"
-   LastChanged "Rune"
-  }
   CustomStringTableItem "{65946467D1D60724}" {
    Id "AR-RKN_SP01M-VA_Ending_Good2"
    Target_en_us "Excellent work with those fire missions. Assistance is on the way. HQ out."
@@ -731,6 +724,41 @@ StringTable {
    Id "AR-RKN_SP01M-VA_FM3C_Timeout3"
    Target_en_us "They'll probably unload the supplies elsewhere. I'll let HQ know. Out."
    Modified 1704269605
+   Author "Rune"
+   LastChanged "Rune"
+  }
+  CustomStringTableItem "{6596C0AAC6766D19}" {
+   Id "AR-RKN_SP01M-VA_HQ1"
+   Target_en_us "Hammer, HQ."
+   Modified 1704378730
+   Author "Rune"
+   LastChanged "Rune"
+  }
+  CustomStringTableItem "{6596C0AAE6A5FF9B}" {
+   Id "AR-RKN_SP01M-VA_HQ2"
+   Target_en_us "We're getting reports of sudden coordinates enemy action all throughout the northern half of the island."
+   Modified 1704378770
+   Author "Rune"
+   LastChanged "Rune"
+  }
+  CustomStringTableItem "{6596C0AA1FCF2A6A}" {
+   Id "AR-RKN_SP01M-VA_HQ3"
+   Target_en_us "Now, I don't whose asshole they came out of, but right now our primary mission is to preserve enough forces for our eventual response."
+   Modified 1704378779
+   Author "Rune"
+   LastChanged "Rune"
+  }
+  CustomStringTableItem "{6596C0AA1A4C0728}" {
+   Id "AR-RKN_SP01M-VA_HQ4"
+   Target_en_us "I know the outpost is not ready. But I hope you at least got that last shipment of shells, because I will direct all firemissions to you."
+   Modified 1704378791
+   Author "Rune"
+   LastChanged "Rune"
+  }
+  CustomStringTableItem "{6596C0AA133184CD}" {
+   Id "AR-RKN_SP01M-VA_HQ5"
+   Target_en_us "Help them with whatever you have on hand. Godspeed. HQ Out."
+   Modified 1704378798
    Author "Rune"
    LastChanged "Rune"
   }

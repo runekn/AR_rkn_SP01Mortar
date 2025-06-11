@@ -2486,9 +2486,24 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SCR_ScenarioFrameworkActionWaitAndExecute "{659255B754C7D748}" {
           m_iDelayInSeconds 5
           m_aActions {
-           SCR_ScenarioFrameworkActionSpawnObjects "{659255B753C866CE}" {
-            m_aNameOfObjectsToSpawnOnActivation {
-             "Ambush_layer"
+           SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{6596C0BA947D2EA1}" {
+            m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"
+            m_sSequenceName "HQ_INTRO"
+            m_ActorGetter RKN_GetRadioEntity "{6596C0BA80E03AF0}" {
+            }
+            m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{6596C0BA8218069D}" {
+            }
+            m_aActions {
+             SCR_ScenarioFrameworkActionWaitAndExecute "{6596C0BA907871D8}" {
+              m_iDelayInSeconds 6
+              m_aActions {
+               SCR_ScenarioFrameworkActionSpawnObjects "{6596C0BA88B8BC8E}" {
+                m_aNameOfObjectsToSpawnOnActivation {
+                 "Ambush_layer"
+                }
+               }
+              }
+             }
             }
            }
           }
@@ -2775,7 +2790,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         m_sCounterName "MissionCounter"
         m_aActions {
          SCR_ScenarioFrameworkActionVoiceOverPlaySequence "{65790BFA0D921385}" {
-          m_sSequenceName "ENDING_MEDIUM"
+          m_sSequenceName "ENDING_NEUTRAL"
           m_ActorGetter RKN_GetRadioEntity "{65790BFA3C2463C8}" {
           }
           m_PlayerGetter SCR_ScenarioFrameworkGetPlayerEntity "{65790BFA3F30C5D3}" {
