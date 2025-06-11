@@ -127,8 +127,8 @@ StringTable {
   }
   CustomStringTableItem "{6594645C9BC61868}" {
    Id "AR-RKN_SP01M-VA_FM0_Request2"
-   Target_en_us "We're suppressed and can't see the exact location of the hostiles. Somewhere south-west."
-   Modified 1704273160
+   Target_en_us "We're suppressed and can't see the exact location of the hostiles. Somewhere to our <i>south-west</i>!"
+   Modified 1704394780
    Author "Rune"
    LastChanged "Rune"
   }
@@ -176,8 +176,8 @@ StringTable {
   }
   CustomStringTableItem "{659464565F3B1E1E}" {
    Id "AR-RKN_SP01M-VA_FM1A_Adj_Hit"
-   Target_en_us "Charlie 1-1. You got it! Fire for effect. Out."
-   Modified 1704278337
+   Target_en_us "Charlie 2-2. You got it! <i>Fire for effect</i>. Out."
+   Modified 1704394828
    Author "Rune"
    LastChanged "Rune"
   }
@@ -197,8 +197,8 @@ StringTable {
   }
   CustomStringTableItem "{659464562ACF8CC8}" {
    Id "AR-RKN_SP01M-VA_FM1A_Adj_Prefix"
-   Target_en_us "Charlie 1-1. Splash."
-   Modified 1704278320
+   Target_en_us "Charlie 2-2. Splash."
+   Modified 1704394841
    Author "Rune"
    LastChanged "Rune"
   }
@@ -246,22 +246,22 @@ StringTable {
   }
   CustomStringTableItem "{6594643050118493}" {
    Id "AR-RKN_SP01M-VA_FM1A_Request2"
-   Target_en_us "We got ambushed on our way to Durras through Pennants Pass."
-   Modified 1704269699
+   Target_en_us "We got ambushed on our way to Durras through <i>Pennants Pass</i>."
+   Modified 1704394869
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{659464304F5133BC}" {
    Id "AR-RKN_SP01M-VA_FM1A_Request3"
-   Target_en_us "We managed to take cover in a large lone building, but we'll need fire support to slip away."
-   Modified 1704269703
+   Target_en_us "We managed to take cover in a <i>large lone building</i>, but we'll need fire support to slip away."
+   Modified 1704394880
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{6594643046D61439}" {
    Id "AR-RKN_SP01M-VA_FM1A_Request4"
-   Target_en_us "Adjust fire mission. At our 310 bearing, 100 meters. HE. Very high angle. Danger close. Out."
-   Modified 1704269706
+   Target_en_us "<i>Adjust fire mission. At our 310 bearing, 100 meters. HE. Very high angle.</i> Danger close. Out."
+   Modified 1704394182
    Author "Rune"
    LastChanged "Rune"
   }
@@ -323,15 +323,15 @@ StringTable {
   }
   CustomStringTableItem "{65946433BA6DECFA}" {
    Id "AR-RKN_SP01M-VA_FM1B_Request3"
-   Target_en_us "We're taking cover in a building complex we believe is called Camurac. I say again, Camurac."
-   Modified 1704276161
+   Target_en_us "We're taking cover in a building complex we believe is called <i>Camurac</i>. I say again, Camurac."
+   Modified 1704394937
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{65946433B7BF5504}" {
    Id "AR-RKN_SP01M-VA_FM1B_Request4"
-   Target_en_us "We need a Fire mission. Adjust fire. Polar. Bearing 065, distance 200 meters. HE. Danger close. Out."
-   Modified 1704276154
+   Target_en_us "We need a Fire mission. <i>Adjust fire. Polar. Bearing 065, distance 200 meters.</i> HE. Danger close. Out."
+   Modified 1704394202
    Author "Rune"
    LastChanged "Rune"
   }
@@ -351,15 +351,15 @@ StringTable {
   }
   CustomStringTableItem "{65946448FC3F42AC}" {
    Id "AR-RKN_SP01M-VA_FM1C_Adj_Hit"
-   Target_en_us "Charlie 1-2. Fire for effect. Out."
-   Modified 1704279075
+   Target_en_us "Charlie 1-2. <i>Fire for effect</i>. Out."
+   Modified 1704394325
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{65946448C6DFE743}" {
    Id "AR-RKN_SP01M-VA_FM1C_Adj_Prefix"
-   Target_en_us "Charlie 1-2. Splash. Direction 007."
-   Modified 1704279066
+   Target_en_us "Charlie 1-2. Splash. <i>Direction 007</i>."
+   Modified 1704394217
    Author "Rune"
    LastChanged "Rune"
   }
@@ -379,8 +379,8 @@ StringTable {
   }
   CustomStringTableItem "{65946433E4F7B2A3}" {
    Id "AR-RKN_SP01M-VA_FM1C_Request2"
-   Target_en_us "Adjust fire. Grid 071 028."
-   Modified 1704228857
+   Target_en_us "<i>Adjust fire. Grid 071 028.</i>"
+   Modified 1704394229
    Author "Rune"
    LastChanged "Rune"
   }
@@ -435,15 +435,15 @@ StringTable {
   }
   CustomStringTableItem "{659464649CC96286}" {
    Id "AR-RKN_SP01M-VA_FM2A_Request2"
-   Target_en_us "Fire mission. Shift from known point. Camp Protrude, 300 meters south."
-   Modified 1704269232
+   Target_en_us "Fire mission. <i>Shift from known point. Camp Protrude, 300 meters south.</i>"
+   Modified 1704394252
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{659464649BE50FC9}" {
    Id "AR-RKN_SP01M-VA_FM2A_Request3"
-   Target_en_us "Fire for effect. Hostile infantry in the open. HE. out."
-   Modified 1704269243
+   Target_en_us "<i>Fire for effect</i>. Hostile infantry in the open. HE. out."
+   Modified 1704394387
    Author "Rune"
    LastChanged "Rune"
   }
@@ -463,22 +463,22 @@ StringTable {
   }
   CustomStringTableItem "{659464480E30418B}" {
    Id "AR-RKN_SP01M-VA_FM2B_Adj_Hit"
-   Target_en_us "Alpha actual. Fire for effect. Out."
-   Modified 1704279170
+   Target_en_us "Alpha actual. <i>Fire for effect</i>. Out."
+   Modified 1704394299
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{65946448062D554B}" {
    Id "AR-RKN_SP01M-VA_FM2B_Adj_Prefix"
-   Target_en_us "Alpha actual. Splash. Direction 315."
-   Modified 1704279185
+   Target_en_us "Alpha actual. Splash. <i>Direction 315.</i>"
+   Modified 1704394262
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{65946464CBC0B058}" {
    Id "AR-RKN_SP01M-VA_FM2B_Request2"
-   Target_en_us "Need adjust fire mission, shift from known point. Camp Protrude, 200 meters north, 200 east."
-   Modified 1704269383
+   Target_en_us "Need <i>adjust fire mission, shift from known point. Camp Protrude, 200 meters north, 200 east.</i>"
+   Modified 1704394270
    Author "Rune"
    LastChanged "Rune"
   }
@@ -491,15 +491,15 @@ StringTable {
   }
   CustomStringTableItem "{65946464F2DA993E}" {
    Id "AR-RKN_SP01M-VA_FM2C_Request2"
-   Target_en_us "Fire mission. Shift from known point. Camp Protrude, 300 meters south, 250 east."
-   Modified 1704269426
+   Target_en_us "Fire mission. <i>Shift from known point. Camp Protrude, 300 meters south, 250 east.</i>"
+   Modified 1704394279
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{65946448299B041B}" {
    Id "AR-RKN_SP01M-VA_FM3A_Adj_Hit"
-   Target_en_us "India 1-2. On Target. Fire for effect! Out."
-   Modified 1704279222
+   Target_en_us "India 1-2. On Target. <i>Fire for effect</i>! Out."
+   Modified 1704394288
    Author "Rune"
    LastChanged "Rune"
   }
@@ -554,8 +554,8 @@ StringTable {
   }
   CustomStringTableItem "{65946464E0AAA557}" {
    Id "AR-RKN_SP01M-VA_FM3A_Request2"
-   Target_en_us "Requesting adjust fire, grid 092 015"
-   Modified 1704269452
+   Target_en_us "Requesting <i>adjust fire, grid 092 015</i>"
+   Modified 1704394406
    Author "Rune"
    LastChanged "Rune"
   }
@@ -596,15 +596,15 @@ StringTable {
   }
   CustomStringTableItem "{6594646403029797}" {
    Id "AR-RKN_SP01M-VA_FM3B_Request2"
-   Target_en_us "Concentration of enemy infiltrators on the road next to Cheval Gin Lodge."
-   Modified 1704269512
+   Target_en_us "Concentration of enemy infiltrators on the road next to <i>Cheval Gin Lodge</i>."
+   Modified 1704395098
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{659464643F195A08}" {
    Id "AR-RKN_SP01M-VA_FM3B_Request3"
-   Target_en_us "Need immediate fire for effect. Out."
-   Modified 1704269518
+   Target_en_us "Need immediate <i>fire for effect</i>. Out."
+   Modified 1704395120
    Author "Rune"
    LastChanged "Rune"
   }
@@ -687,15 +687,15 @@ StringTable {
   }
   CustomStringTableItem "{659464645E73B0F1}" {
    Id "AR-RKN_SP01M-VA_FM3C_Request2"
-   Target_en_us "We were doing patrol along Oar ridge as we spotted some hostiles unloading cargo into a building to our north-west, near the coastline."
-   Modified 1704269578
+   Target_en_us "We were doing patrol along <i>Oar ridge</i> as we spotted some hostiles unloading cargo into a <i>building to our north-north-west</i>, near the coastline."
+   Modified 1704394458
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{659464645A5A5DCC}" {
    Id "AR-RKN_SP01M-VA_FM3C_Request3"
-   Target_en_us "I think we need a fire mission. I'll adjust fire from my position. Out."
-   Modified 1704269585
+   Target_en_us "I think we need a fire mission. I'll <i>adjust fire</i> from my position. Out."
+   Modified 1704394468
    Author "Rune"
    LastChanged "Rune"
   }
@@ -764,15 +764,15 @@ StringTable {
   }
   CustomStringTableItem "{6594645D2445D85A}" {
    Id "AR-RKN_SP01M-VA_Officer1"
-   Target_en_us "Couldn't they have build an outpost somewhere trucks can carry?"
-   Modified 1704273024
+   Target_en_us "Whose brilliant idea was it to build an outpost where trucks can't carry?"
+   Modified 1704399519
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{6594645D5992DC2C}" {
    Id "AR-RKN_SP01M-VA_Officer2"
-   Target_en_us "Anyway, why don't you start unloading these shell crates. I gotta go take a leak."
-   Modified 1704273041
+   Target_en_us "Start unloading these shell crates, would you? I gotta go take a leak."
+   Modified 1704399561
    Author "Rune"
    LastChanged "Rune"
   }

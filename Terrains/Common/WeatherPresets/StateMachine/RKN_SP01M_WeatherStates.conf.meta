@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{B75860C5C534654E}Terrains/Common/WeatherPresets/StateMachine/RKN_SP01M_WeatherStates.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass PS5 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

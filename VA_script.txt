@@ -1,0 +1,278 @@
+Mod for Arma Reforger. Game is set in 1989 and depicts realistic combat between US and USSR. 
+The mod is a singleplayer mission that sees you make full use of Arma's authentic mortar mechanics.
+Gameplay will consist of 20-30 minutes of fulfilling firemissions. All firemission requests will be relayed over ingame radio and be voice acted.
+Here's a playthrough of an early version with my own placeholder voicelines. (Do not use this as tone guide for your own recordings).
+https://www.youtube.com/watch?v=sVrtAQtPMlg
+
+In this script certain words will be enclosed in tags <i>. These denote important information for the player, and must preferably be spoken clearly.
+The script is split into VA's (voice actors), which are dialogue that, is not necesarily the same ingame character, but can use the same voice due to how the mission is structured.
+A single voice actor can voice multiple VA sections if they can change their voice.
+
+I want to keep it authentic. Meaning I am not really looking for the typical gritty military voice.
+
+Situation (not to be narrated):
+	The Cold War has gone lukewarm. Proxy wars has slowly turned into small scale direct conflict between the nuclear powers in remote third-world countries.
+	The island of Everon is eyed by the USSR, and its Government has invited a small US force to build a camp there to encourage the soviet's better judgement. 
+	Though the token force is small, as there is little interest in pulling from more important fronts to this ocean rock.
+	
+Mission (not to be narrated):
+	You crew a mortar and has been stationed on a hill outpost. The outpost is not yet finished, and your officer is on his way from the nearby camp with the shell ammunition.
+
+
+VA1 (In person)
+	Officer - *Arrives to outpost in jeep with ammo crates. Is a bit tired after going around fetching stuff for outpost.*
+		*Exits jeep*
+		"Whose brilliant idea was it to build an outpost where trucks can't carry?"
+		"Start unloading these shell crates, would you? I gotta go take a leak."
+
+
+VA2 (Radio)
+	Inquery - Tone: *Slightly hesitant*
+		"Hammer, this is India 3-2 come in?"
+		"We think we saw some dust rising on that ridge on the opposite side of the valley from your outpost."
+		"We thought perhaps you could check it out with your binoculars?"
+	
+	Inquery 2
+		"India 3-2 to Hammer, was that an explosion?"
+
+	Firemission 0 Request - Tone: *Over radio. Urgent. Panic. Bit unprofessional*
+		"India 3-2 to Hammer! We're taking fire and need assistance!"
+		"We're suppressed and can't see the exact location of the hostiles. Somewhere to our <i>south-west</i>!"
+		"Maybe you can see them from there. Please hurry, we're in a bad position. Out."
+	
+	Firemission 0 timeout - Tone: *Wounded. Tired. Has accepted fate.*
+		"This is India 3-2. I've been hit."
+		"Think the others are dead. I'm not doing good. India 3-2 out."
+	
+	Firemission 0 success - Tone: *Relieved*
+		"I can't hear the shooting anymore. I think you saved our skin there Hammer. Out."
+	
+	Firemission 0 success (smoke) - Tone: *Relieved. Tired from brief sprint.*
+		"Hammer. India 3-2. We've evacuated thanks to the smoke."
+		"I can't thank you enough. Out."
+
+
+VA3 (Radio)
+	Firemission 1A request - Tone: *Urgent. Somewhat professional.*
+		"Hammer, this is Charlie 2-2!"
+		"We got ambushed on our way to Durras through <i>Pennants Pass</i>."
+		"We managed to take cover in a <i>large lone building</i>, but we'll need fire support to slip away."
+		"<i>Adjust fire mission. At our 310 bearing, 100 meters. HE. Very high angle.</i> Danger close. Out."
+	
+	Firemission 1A timeout - Tone: *Urgent. Somewhat professional.*
+		"This is Charlie 2-2. We're being surrounded and cannot wait any longer."
+		"We're going to attempt to break out before it's too late. Wish us luck. Charlie out."
+	
+	Firemission 1A failure
+		"This is Charlie 2-2. Little effect on target."
+		"We're going to attempt to break out before it's too late. Wish us luck. Charlie out."
+	
+	Firemission 1A success - Tone: *Bit relieved. Somewhat professional.*
+		"Hammer, Charlie 2-2"
+		"Good effect. We broke out while they were scattered."
+		"We'll take the long around back to Regina and link up with the rest of Charlie."
+		"End of mission. Out."
+		
+	Firemission 1A adjustments. Words will be combined programatically.
+		"Charlie 2-2. Splash."
+		"Drop"
+		"Add"
+		"Left"
+		"Right"
+		"25 meters"
+		"100 meters"
+		"200 meters"
+		"300 meters"
+		"Out"
+		"Charlie 2-2. You got it! <i>Fire for effect</i>. Out."
+	
+	Firemission 1B request - Tone: *Urgent. Somewhat professional.*
+		"Hammer, Charlie 2-2    -- Does not need to be rerecorded"
+		"We got ambushed on our way to Regina."
+		"We're taking cover in a building complex we believe is called <i>Camurac</i>. I say again, Camurac."
+		"We need a Fire mission. <i>Adjust fire. Polar. Bearing 065, distance 200 meters.</i> HE. Danger close. Out."
+	
+	Firemission 1B timeout - Tone: *Very urgent. Lost composure.*
+		"This is Charlie 2-2 we need immediate assistance! They're about to-- *static*"
+	
+	Firemission 1B failure
+		"This is Charlie 2-2. You missed, but it at least spooked them some."
+		"We're going to attempt to break out before it's too late. Wish us luck. Charlie out."    -- Does not need to be rerecorded
+	
+	Firemission 1B success
+		"Hammer, good effect on target! 3 enemy casualties. The rest are scattering."
+		"End of mission. Out."    -- Does not need to be rerecorded
+	
+	Firemission 1B friendly fire - Tone: *Urgent*
+		"Hammer this is Charlie 2-2! Cease fire, you're hitting us!"
+	
+	Firemission 1C request - Tone: *Professional. Calm.*
+		"Hammer, this is Charlie 1."
+		"<i>Adjust fire. Grid 071 028.</i>"
+		"Hostile sniper team in the tree line. Likely ambush. HE. Out."
+	
+	Firemission 1C timeout - Tone: *Professional. Calm.*
+		"Hammer, this is Charlie 1."    -- Does not need to be rerecorded
+		"Bird has flown. End of mission. Out."
+	
+	Firemission 1C failure - Tone: *Professional. Calm.*
+		"Hammer, Charlie 1. No effective on target."
+		"Bird has flown. End of mission. Out."    -- Does not need to be rerecorded
+	
+	Firemission 1C success - Tone: *Professional. Calm.*
+		"Hammer, Charlie 1. Good effective on target."
+		"Enemy team destroyed. End of mission. Out."
+		
+	Firemission 1C adjustments
+		"Charlie 1-2. Splash. <i>Direction 007</i>."
+		"Charlie 1-2. <i>Fire for effect</i>. Out."
+
+
+VA4 (Radio) - Tone: *Professional. Authorative.*
+	Firemission 2A
+		"Hammer, this is Alpha actual."
+		"Fire mission. <i>Shift from known point. Camp Protrude, 300 meters south.</i>"
+		"<i>Fire for effect</i>. Hostile infantry in the open. HE. out."
+	
+	Firemission 2A failure
+		"Hammer, this is Alpha actual."    -- Does not need to be rerecorded
+		"Little to no effect on target. End of mission. Out."
+	
+	Firemission 2A timeout
+		"Hammer, this is Alpha actual."    -- Does not need to be rerecorded
+		"Cancel firemission. Situation has evolved. Out."
+		
+	Firemission 2A friendly fire - Tone: *Angry*
+		"Hammer! Friendly fire! End of mission. Out!"
+	
+	Firemission 2A success
+		"Hammer, this is Alpha actual."    -- Does not need to be rerecorded
+		"Good effect on target. End of mission. Out."
+	
+	Firemission 2B request
+		"Hammer, this is Alpha actual."    -- Does not need to be rerecorded
+		"Need <i>adjust fire mission, shift from known point. Camp Protrude, 200 meters north, 200 east.</i>"
+		"Hostile encampment. Requesting HE. out."
+		
+	Firemission 2B adjustments. Words will be combined programatically.
+		"Alpha actual. Splash. <i>Direction 315.</i>"
+		"Drop"
+		"Add"
+		"Left"
+		"Right"
+		"25 meters"
+		"100 meters"
+		"200 meters"
+		"300 meters"
+		"Out"
+		"Alpha actual. <i>Fire for effect</i>. Out."
+	
+	Firemission 2C request
+		"Hammer, this is Alpha actual."    -- Does not need to be rerecorded
+		"Fire mission. <i>Shift from known point. Camp Protrude, 300 meters south, 250 east.</i>"
+		"<i>Fire for effect</i>. Hostile infantry in the open. HE. out."    -- Does not need to be rerecorded
+
+VA5 (Radio)
+	Firemission 3A request - Tone: *Somewhat professional. Slightly excited over recent victory*
+		"India 3 to Hammer"
+		"Requesting <i>adjust fire, grid 092 015</i>"
+		"Some hostiles held up in a building. Need help flushing them out. Out."
+
+	Firemission 3A timeout
+		"India 3 to Hammer"    -- Does not need to be rerecorded
+		"We can't wait forever for firesupport. Call off mission. We'll reevaluate our options. Out."
+	
+	Firemission 3A failure
+		"India 3 to Hammer"   -- Does not need to be rerecorded
+		"Splash ineffective. Call off mission. We'll reevaluate our options. Out."
+	
+	Firemission 3A success
+		"India 3 to Hammer"    -- Does not need to be rerecorded
+		"Good splashes. We see signs of surrender. End of mission. Out."
+		
+	Firemission 3A adjustments. Words will be combined programatically.
+		"India 1-2. Splash. Adjust"
+		"South"
+		"North"
+		"West"
+		"East"
+		"25 meters"
+		"100 meters"
+		"200 meters"
+		"300 meters"
+		"Out"
+		"India 1-2. On Target. <i>Fire for effect</i>! Out."
+	
+	Firemission 3B request - Tone: *Urgent. Bit unprofessional.*
+		"Bravo to Hammer. Come in!"
+		"Concentration of enemy infiltrators on the road next to <i>Cheval Gin Lodge</i>."
+		"Need immediate <i>fire for effect</i>. Out."
+	
+	Firemission 3B timeout
+		"Bravo to Hammer."
+		"Enemy has moved on. We missed the opportunity. End of mission. Out."
+	
+	Firemission 3B failure
+		"Bravo to Hammer."    -- Does not need to be rerecorded
+		"Little effect on target. End of mission, they're scattering. Out."
+
+	Firemission 3B success
+		"Bravo to Hammer."    -- Does not need to be rerecorded
+		"Good hits! Wrecked those bastards! End of mission. Out."
+	
+	Firemission 3C request - Tone: *Bit unprofessional. Unsure.*
+		"Bravo to Hammer, come in?"
+		"We were doing patrol along <i>Oar ridge</i> as we spotted some hostiles unloading cargo into a <i>building to our north-north-west</i>, near the coastline."
+		"I think we need a fire mission. I'll <i>adjust fire</i> from my position. Out."
+
+	Firemission 3C timeout
+		"Bravo to Hammer."    -- Does not need to be rerecorded
+		"You took too long. They've moved the cargo up the coastline. I can no longer see from here."
+		"They'll probably unload the supplies elsewhere. I'll let HQ know. Out."
+	
+	Firemission 3C failure
+		"Bravo to Hammer."    -- Does not need to be rerecorded
+		"That was no good. They've moved the cargo up the coastline. I can no longer see from here."
+		"They'll probably unload the supplies elsewhere. I'll let HQ know. Out."    -- Does not need to be rerecorded
+	
+	Firemission 3C success
+		"Bravo to Hammer."    -- Does not need to be rerecorded
+		"Dead on!. Building is burning and hostiles are fleeing to open sea."
+		"HQ will like this. Bravo out."
+		
+	Firemission 3C adjustments. Words will be combined programatically.
+		"Bravo 2 to Hammer. The shell hit "
+		"Over by"
+		"Short by"
+		"Left by"
+		"Right by"
+		"25 meters"
+		"100 meters"
+		"200 meters"
+		"300 meters"
+		"Out"
+		"Bravo to Hammer, you're on target. Keep hitting them!"
+
+
+VA6 (Radio)
+	Firemissions start
+		"Hammer, HQ"
+		"We're getting reports of sudden coordinates enemy action all throughout the northern half of the island."
+		"Now, I don't whose asshole they came out of, but right now our primary mission is to preserve enough forces for our eventual response."
+		"I know the outpost is not ready. But I hope you at least got that last shipment of shells, because I will direct all firemissions to you."
+		"Help them with whatever you have on hand. Godspeed. HQ Out."
+
+	Good ending - Tone: *Professional. Authorative.*
+		"Hammer, HQ."
+		"Excellent work with those fire missions. Assistance is on the way. HQ out."
+	
+	Neutral ending - Tone: *Professional. Authorative.*
+		"Hammer, HQ."    -- Does not need to be rerecorded
+		"We've lost too many assets in the southern half. Your position is under threat."
+		"We're sending a team to you for relocation further north. HQ out."
+	
+	Bad ending - Tone: *Professional. Authorative. Slightly apolegetic.*
+		"Hammer, HQ."    -- Does not need to be rerecorded
+		"The situation has become untenable. Enemy ground forces are approaching your position."
+		"Sabotage the tube and make your way to Camp Protrude."
+		"I'm afraid you're on your own until you get here. HQ out."
