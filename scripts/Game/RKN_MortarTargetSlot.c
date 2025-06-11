@@ -41,6 +41,9 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	[Attribute(defvalue: "1", desc: "What to do in case of timeout", UIWidgets.Auto, category: "Mortar target")]
 	ref array<ref SCR_ScenarioFrameworkActionBase> m_aActionsOnTimeout;
 	
+	[Attribute(desc: "Will deactivate these targets if this one is deactivated", UIWidgets.Auto, category: "Mortar target")]
+	ref array<ref SCR_ScenarioFrameworkGet> m_aLinkedTargets;
+	
 	[Attribute(defvalue: "true", desc: "Observer will first request one shell that will be corrected unto target, before requesting fire for effect.", category: "Mortar target")]
 	bool m_bRequestAdjustFire;
 	
@@ -53,20 +56,25 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	[Attribute(desc: "Config for the subtitles and sound event names for fire adjustments", UIWidgets.Auto, category: "Mortar target")]
 	ResourceName m_sAdjustSoundConfig;
 	
-	int m_iSplashesOnTarget = 0;
-	int m_iSplashes = 0;
 	int	m_iDebugOuterShapeColor = ARGB(32, 32, 255, 255);
-	bool m_bAdjustFire = true;
+	int m_iSplashesOnTarget;
+	int m_iSplashes;
+	bool m_bAdjustFire;
+	bool m_bDeactivated;
 	ref RKN_MortarTargetVoiceLines m_sAdjustSounds;
 	
 	//------------------------------------------------------------------------------------------------
 	override bool InitOtherThings()
 	{
 		Print("RKN_MortarTargetSlot.InitOtherThings");
+		m_iSplashesOnTarget = 0;
+		m_iSplashes = 0;
+		m_bAdjustFire = m_bRequestAdjustFire;
+		m_bDeactivated = false;
+		
 		RKN_MortarSystem system = RKN_MortarSystem.GetInstance();
 		if (system)
 			system.AddTarget(this);
-		m_bAdjustFire = m_bRequestAdjustFire;
 		if (m_oObserverPosition)
 			m_oObserverPosition.Init(GetOwner());
 		
@@ -229,7 +237,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 			action.OnActivate(GetOwner());
 		}
 		
-		Deactivate(GetOwner());
+		Deactivate();
 	}
 	
 	private void ExecuteActions()
@@ -248,6 +256,27 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		if (m_iTimeoutInSeconds > 0)
 			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().Remove(ExecuteActions);
 		
+		Deactivate();
+	}
+	
+	void Deactivate()
+	{
+		if (m_bDeactivated)
+			return;
+		m_bDeactivated = true;
+		foreach (SCR_ScenarioFrameworkGet getter : m_aLinkedTargets)
+		{
+			SCR_ScenarioFrameworkParam<IEntity> entityWrapper = SCR_ScenarioFrameworkParam<IEntity>.Cast(getter.Get());
+			if (!entityWrapper)
+				continue;
+			IEntity entity = entityWrapper.GetValue();
+			if (!entity)
+				continue;
+			RKN_MortarTargetSlot target = RKN_MortarTargetSlot.Cast(entity.FindComponent(RKN_MortarTargetSlot));
+			if (!target)
+				continue;
+			target.Deactivate();
+		}
 		Deactivate(GetOwner());
 	}
 	
