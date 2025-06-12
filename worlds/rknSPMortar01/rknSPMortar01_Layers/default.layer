@@ -2186,8 +2186,8 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
             m_iTargetIgnoreRadius 500
             m_iRequiredSplashesOnTarget 4
             m_iRequiredSplashes 5
-            m_iTimeoutInSeconds 100
-            m_iTimeoutInSecondsMax 120
+            m_iTimeoutInSeconds 200
+            m_iTimeoutInSecondsMax 250
             m_aActionsOnCompletion {
              RKN_VoiceOverPlayFiremissionSequence "{65790BEF30BF49CA}" {
               m_sVoiceOverDataConfig "{5319BF1C90A39E63}Configs/VoiceData/rknSPMortar01.conf"

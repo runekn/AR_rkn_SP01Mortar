@@ -162,15 +162,15 @@ StringTable {
   }
   CustomStringTableItem "{6594645C8F13BD1E}" {
    Id "AR-RKN_SP01M-VA_FM0_Timeout1"
-   Target_en_us "This is India 3-2. I've been hit."
-   Modified 1704273181
+   Target_en_us "This is India 3-2 again. They ran back into the woods. You can save your ammo aswell."
+   Modified 1704535408
    Author "Rune"
    LastChanged "Rune"
   }
   CustomStringTableItem "{6594645C8B6A61DA}" {
    Id "AR-RKN_SP01M-VA_FM0_Timeout2"
-   Target_en_us "Think the others are dead. I'm not doing good. India 3-2 out."
-   Modified 1704273188
+   Target_en_us "Though they got us good. Nicked me, and I don't hear the others. HQ is sending help. India 3-2 out."
+   Modified 1704535417
    Author "Rune"
    LastChanged "Rune"
   }
