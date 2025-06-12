@@ -687,8 +687,8 @@ StringTable {
   }
   CustomStringTableItem "{659464645E73B0F1}" {
    Id "AR-RKN_SP01M-VA_FM3C_Request2"
-   Target_en_us "We were doing patrol along <i>Oar ridge</i> as we spotted some hostiles unloading cargo into a <i>building to our north-north-west</i>, near the coastline."
-   Modified 1704394458
+   Target_en_us "We were doing patrol along <i>Ore ridge</i> as we spotted some hostiles unloading cargo into a <i>building to our north-north-west</i>, near the coastline."
+   Modified 1704481649
    Author "Rune"
    LastChanged "Rune"
   }

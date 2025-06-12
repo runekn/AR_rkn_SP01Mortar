@@ -222,7 +222,7 @@ VA5 (Radio)
 	
 	Firemission 3C request - Tone: *Bit unprofessional. Unsure.*
 		"Bravo to Hammer, come in?"
-		"We were doing patrol along <i>Oar ridge</i> as we spotted some hostiles unloading cargo into a <i>building to our north-north-west</i>, near the coastline."
+		"We were doing patrol along <i>Ore ridge</i> as we spotted some hostiles unloading cargo into a <i>building to our north-north-west</i>, near the coastline."
 		"I think we need a fire mission. I'll <i>adjust fire</i> from my position. Out."
 
 	Firemission 3C timeout

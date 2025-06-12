@@ -35,11 +35,6 @@ SCR_FactionManager FactionManager_USxUSSR : "{589540B35EBA8CDC}Prefabs/MP/Manage
   }
  }
 }
-TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
- coords 8573.713 282.385 4355.957
- WeatherStateMachine "{B75860C5C534654E}Terrains/Common/WeatherPresets/StateMachine/RKN_SP01M_WeatherStates.conf"
- "Initial Day Time" 1.786
-}
 RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
  coords 7114.537 103.057 6283.017
 }
@@ -100,6 +95,16 @@ SCR_BaseGameMode GameModeSF1 : "{ECEEDB2D3737204B}Prefabs/Systems/ScenarioFramew
    }
    m_SpawnLogic SCR_MenuSpawnLogic "{5D36888CC966608A}" {
     m_sForcedFaction "US"
+   }
+  }
+  SCR_TimeAndWeatherHandlerComponent "{65984D9D6927FD92}" {
+   m_bUsePredefineStartingTimeAndWeather 1
+   m_aStartingWeatherAndTime {
+    SCR_TimeAndWeatherState "{65984D9C8FB05E9A}" {
+     m_sWeatherPresetName "Cloudy"
+     m_iStartingHour 5
+     m_iStartingMinutes 40
+    }
    }
   }
  }

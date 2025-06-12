@@ -137,7 +137,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 	
 	void Splash(vector hit, float dist)
 	{
-		Print("Hit " + GetOwner().GetName() + " " + dist + " from " + m_oObserverPosition);
+		Print("Hit " + GetOwner().GetName() + " " + dist + " from " + GetOwner().GetOrigin());
 		if (dist < m_iTargetRadius)
 		{
 			Print("On target!");
@@ -217,6 +217,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 					subtitles += " " + m_sAdjustSounds.m_sLeftSubtitles + " " + distanceString + " meters.";
 				}
 			}
+			Print(subtitles);
 			SetAdjustSignalValues(onLineDirectionIndex, onLineDistanceIndex, offsetDirectionIndex, offsetDistanceIndex);
 			PlayCorrection(m_sAdjustSounds.m_sAdjustSoundEvent, subtitles);
 		}
@@ -254,7 +255,7 @@ class RKN_MortarTargetSlot : SCR_ScenarioFrameworkSlotBase
 		}
 		
 		if (m_iTimeoutInSeconds > 0)
-			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().Remove(ExecuteActions);
+			SCR_ScenarioFrameworkSystem.GetCallQueuePausable().Remove(ExecuteTimeoutActions);
 		
 		Deactivate();
 	}
